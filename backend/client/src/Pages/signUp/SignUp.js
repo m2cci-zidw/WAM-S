@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
-import { register, videErrors } from "../../JS/actions/user";
-
-import '../signIn/SignIn.css'
+import React, { useState ,useEffect} from "react";
+import { useDispatch, useSelector} from "react-redux";
+// import { register, videErrors } from "../../JS/actions/user";
 import {Link}from 'react-router-dom'
+import { register, videErrors } from "../../JS/actions/user";
+import Errors from "../../Components/Errors";
+
+import './SignUP.css'
 
 const SignUp = ({history}) => {
   const [user, setuser] = useState({});
-  // const errors = useSelector((state) => state.userReducer.errors);
+  const errors = useSelector ((state) => state.userReducer.errors);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -15,13 +17,14 @@ const SignUp = ({history}) => {
   };
   useEffect(() => {
     return () => {
-      dispatch(videErrors());
+      dispatch(videErrors ());
     };
   }, [dispatch]);
     return (
         <div>
-            <div className="SignInUp">
-              <div className="main">  	
+            <div className="content-signup">
+            
+              <div className="main-SignUp">  	
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="signup">
           <form>
@@ -41,9 +44,10 @@ const SignUp = ({history}) => {
             onChange={handleChange}
             />
             <button
-            onClick={() => dispatch(register(user, history))}
+            onClick={(e) => { e.preventDefault(); dispatch( register (user, history))}}
             >Sign up</button>
           </form>
+          {errors.length > 0 ? errors.map((el) => <Errors error={el} />) : null}
         </div>
        
       </div>

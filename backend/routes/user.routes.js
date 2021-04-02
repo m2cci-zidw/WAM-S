@@ -19,7 +19,7 @@ router.post('/signup',registrationValidation(),validation, signUp)
 router.post('/signin',loginValidation(),validation, signIn)
 // is auth (route privée)
 router.get('/current',isAuth,(req,res)=>{  
-    res.send("authorized")
+    res.send(req.user)
 })
 
 /***********get all users 'CRUD'************ */

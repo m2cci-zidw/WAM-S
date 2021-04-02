@@ -2,25 +2,49 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import{Navbar,Nav,Form}from 'react-bootstrap'
 import './NavBar.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../JS/actions/user'
 const NavBar = () => {
+    const dispatch = useDispatch()
+    const isAuth = useSelector((state) => state.userReducer.isAuth)
+    
     return (
         <div>
+
             <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">WAM'S</Navbar.Brand>
+    <Navbar.Brand href="/">WAM'S</Navbar.Brand>
     <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Profil</Nav.Link>
-          <Nav.Link href="#pricing">test</Nav.Link>
+        <Link to="/">
+              <Nav href="/">Home</Nav>
+        </Link>
+        <Link to="/profile">
+              <Nav href="/">Profil</Nav>
+        </Link>
+          
+          <Nav href="/">test</Nav>
     </Nav>
     
     <Form inline>
+
     <Nav className="mr-auto">
-          <Link to="/signin">
-              <Nav.Link href="#features">Sign In</Nav.Link>
-          </Link>
-          <Link to="/signup">
-              <Nav.Link href="#home" >Sign Up</Nav.Link>
-          </Link>
+         { isAuth?(
+              <Link to="/">
+                 <Nav href="/" onClick={()=>dispatch(logout() )} >LogOut</Nav>
+             </Link>)
+            :
+            (
+                <div>
+                    <Link to="/signin">
+                        <Nav href="/">Sign In</Nav>
+                    </Link>
+                    <Link to="/signup">
+                        <Nav href="/" >Sign Up</Nav>
+                    </Link>
+                </div>
+            )
+
+        }
+         
     </Nav>
     </Form>
   

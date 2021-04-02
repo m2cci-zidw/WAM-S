@@ -18,7 +18,7 @@ import {
       dispatch({ type: REGISTER_USER, payload: result.data }); //msg , token , user
       history.push("/profile");
     } catch (error) {
-      console.log(error.response.data.errorrs);
+      console.log(error.response.data.errors);
       // error.response.data.errors.map((el) => alert(el.msg));
       dispatch({ type: FAIL_USER, payload: error.response.data.errors });
     }
@@ -47,7 +47,7 @@ import {
         headers: { Authorization: localStorage.getItem("token") },
       };
       const result = await axios.get("/api/users/current", options);
-      dispatch({ type: CURRENT_USER, payload: result.data });
+      dispatch({ type: CURRENT_USER, payload:result.data });
     } catch (error) {
       dispatch({ type: FAIL_USER, payload: error.response.data });
     }
