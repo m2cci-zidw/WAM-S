@@ -9,7 +9,7 @@ exports.signUp=async(req,res)=>{
  
   try {
          //req.body <= {name,email,password,phone}
-      const {name,email,password,phone} =req.body
+      const {name,email,password} =req.body
       //test unique email
        const findUser = await User.findOne({email}) 
        if(findUser){
