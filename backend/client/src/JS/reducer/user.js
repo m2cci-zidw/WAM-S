@@ -5,6 +5,10 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     LOGOUT_USER,
+    VIDE_ERRORS,
+    UPLOAD_PICTURE,
+    UPDATE_BIO
+    
   } from "../actionTypes/user";
   
   const initialState = {
@@ -55,8 +59,25 @@ import {
           user: {},
           isAuth: false,
         };
-      case "VIDE_ERRORS":
+      case VIDE_ERRORS:
         return { ...state, errors: [] };
+
+        case UPLOAD_PICTURE:
+          return {
+            ...state,
+            picture: payload.picture,
+
+          };
+          case UPDATE_BIO:
+            return{
+              ...state,
+              bio:payload,
+            }
+
+      
+
+
+
       default:
         return state;
     }

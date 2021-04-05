@@ -22,9 +22,9 @@ const SignUp = ({history}) => {
   }, [dispatch]);
     return (
         <div>
-            <div className="content-signup">
+            <div className="content-signUp">
             
-              <div className="main-SignUp">  	
+              <div className="main-signUp">  	
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="signup">
           <form>

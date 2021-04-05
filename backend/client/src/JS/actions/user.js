@@ -5,6 +5,11 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     LOGOUT_USER,
+    VIDE_ERRORS,
+    UPLOAD_PICTURE,
+    UPLOAD_ERORRS,
+    UPDATE_BIO,
+    
   } from "../actionTypes/user";
   
   import axios from "axios";
@@ -61,7 +66,42 @@ import {
   
   export const videErrors = () => {
     return {
-      type: "VIDE_ERRORS",
+      type: VIDE_ERRORS,
     };
   };
-  
+
+
+  // upload picture 
+  export const uploadPicture = (data, id) => {
+    return (dispatch) => {
+      return axios
+        .post("/api/users/upload", data)
+        .then((res) => {
+          if (res.data.errors) {
+            
+            dispatch({ type: UPLOAD_ERORRS, payload: res.data.errors });
+          } else {
+            
+            return axios
+              .get(`/api/users/${id}`)
+              .then((res) => {
+                dispatch({ type: UPLOAD_PICTURE, payload: res.data.picture });
+              });
+          }
+        })
+        .catch((err) => console.log(err));
+    };
+  };
+
+  export const updateBio=(id,bio)=> async(dispatch) =>{
+    try {
+      await axios.put(`/api/users/${id}`,bio)
+      dispatch({type:UPDATE_BIO,payload:bio})
+      
+    } catch (error) {
+      dispatch({  payload: error.response.data });
+
+      
+    }
+
+  }

@@ -10,7 +10,7 @@ const Errors = ({ error,  }) => {
     setTimeout(() => {
       setAlert(!alert);
     }, 3000);
-  }, [error,errors]);
+  }, [error,errors,alert]);
   return (
     alert && (
       <div class="alert alert-primary" role="alert">
