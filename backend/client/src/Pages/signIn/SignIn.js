@@ -28,7 +28,7 @@ const SignIn = ({history}) => {
         <div className="login">
           <form>
             
-            <label htmlFor="chk" aria-hidden="true" >Lorem</label>
+            <label htmlFor="chk" aria-hidden="true" ></label>
             
             <input type="email" name="email"
             onChange={handleChange}

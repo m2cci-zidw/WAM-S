@@ -26,11 +26,12 @@ const userSchema= new schema({
       
         picture: {
           type: String,
-         // default: "./uploads/profil/random-user.png"
+         default:"./uploads/profil/random-user.png"
         },
         bio :{
           type: String,
           max: 1024,
+          default:"hello"
         },
         followers: {
           type: [String]

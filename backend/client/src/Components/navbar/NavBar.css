@@ -1,2 +1,19 @@
 
 
+.logo{
+    height: 70px;
+    width: 70px;
+    margin-left: 20px;
+}
+
+.sign{
+   
+    
+    display: flex ;
+    flex-direction: row ;
+    
+}
+.Btn{
+    margin-left: 20px !important;
+    
+}
