@@ -57,9 +57,6 @@ const Profile = () => {
               <h5 className="mb-0">About</h5>
               <div className="p-4 rounded shadow-sm bg-light">
               <UpdateProfil/>
-                <p className="font-italic mb-0">{(user && user.bio) || ""}</p>
-                <p className="font-italic mb-0">Lives in New York</p>
-                <p className="font-italic mb-0">Photographer</p>
               </div>
             </div>
             <div className="py-4 px-4">
