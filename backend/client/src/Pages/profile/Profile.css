@@ -1,6 +1,6 @@
 
 
-  /* 2ème profile */
+  
   .profile-head {
     transform: translateY(5rem)
 }
@@ -18,4 +18,11 @@ body {
     
 
 
+}
+
+
+
+.TextBio{
+    width: 500px;
+    border: none;
 }

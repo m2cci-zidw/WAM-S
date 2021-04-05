@@ -8,7 +8,7 @@ import {
     VIDE_ERRORS,
     UPLOAD_PICTURE,
     UPLOAD_ERORRS,
-    UPDATE_BIO,
+   
     
   } from "../actionTypes/user";
   
@@ -95,8 +95,8 @@ import {
 
   export const updateBio=(id,bio)=> async(dispatch) =>{
     try {
-      await axios.put(`/api/users/${id}`,bio)
-      dispatch({type:UPDATE_BIO,payload:bio})
+       await axios.put(`/api/users/${id}`,bio)
+      dispatch(currentUser())
       
     } catch (error) {
       dispatch({  payload: error.response.data });

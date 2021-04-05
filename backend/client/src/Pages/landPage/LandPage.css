@@ -1,0 +1,7 @@
+.container-profil{
+    display: flex;
+}
+.wrapper-thread {
+border: 4px solid goldenrod;
+width: 100%;
+}

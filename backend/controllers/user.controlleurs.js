@@ -46,7 +46,7 @@ exports.updateUser = async(req,res)=>{
     try {
          await User.findOneAndUpdate(
           { _id: req.params.id },
-          { $set: {bio:req.body.bio}
+          { $set: req.body
           },
             { new: true, upsert: true, setDefaultsOnInsert: true },  //evit bug 
             

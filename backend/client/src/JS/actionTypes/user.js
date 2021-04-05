@@ -12,4 +12,22 @@ export const UPLOAD_ERORRS = "UPLOAD_ERORRS";
 export const UPDATE_BIO = "UPDATE_BIO";
 
 
+// Poste
+export const  FAIL_POSTS="FAIL_POSTS" 
+export const  GET_POSTS_LOAD="GET_POSTS_LOAD"
+export const  GET_POSTS_SUCCESS="GET_POSTS_SUCCESS"
+
+
+
+
+
+//admin
+/****action contactuser */
+export const GET_CONTACTS_LOAD = "GET_CONTACTS_LOAD"
+export const GET_CONTACTS_SUCCESS = "GET_CONTACTS_SUCCESS"
+export const GET_CONTACTS_FAIL = "GET_CONTACTS_FAIL"
+export const TOGGLE_TRUE = "TOGGLE_TRUE"
+export const TOGGLE_FALSE = "TOGGLE_FALSE"
+export const GET_CONTACT = "GET_CONTACT"
+
 

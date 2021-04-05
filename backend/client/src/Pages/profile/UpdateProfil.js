@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {updateBio} from "../../JS/actions/user";
 
+import './Profile.css'
+
 
 const UpdateProfil = () => {
-        const [bio, setBio] = useState("");
-        const [updateForm, setUpdateForm] = useState(false);
-        const user = useSelector((state) => state.userReducer.user);
+    const [updateForm, setUpdateForm] = useState(false);
+    const user = useSelector((state) => state.userReducer.user);
+    const [bio, setBio] = useState(user);
         const dispatch = useDispatch();
         const handleUpdate = () => {
                     // dispatch(updateBio(user._id, bio));
@@ -20,9 +22,8 @@ const UpdateProfil = () => {
         <div>
             <div>
             <div className="bio-update">
-             <h3>Bio</h3>
               {updateForm === false && (
-                <div>
+                <div className="FormBio">
                     <p onClick={() => setUpdateForm(!updateForm)}>{bio && user.bio}</p>
                     <button onClick={() => setUpdateForm(!updateForm)}>
                     Modifier bio
@@ -30,11 +31,11 @@ const UpdateProfil = () => {
                 </div>
                 )}
                 {updateForm && (
-                <div>
-                    <textarea
+                <div className="FormBio">
+                    <textarea className="TextBio"
                     type="text"
-                    defaultValue={user.bio}
-                    onChange={(e) => setBio(e.target.value)}
+                    value={bio.bio}
+                    onChange={(e) => setBio({...bio,bio:e.target.value})}
                     ></textarea>
                     <button onClick={handleUpdate}>Valider modifications</button>
                 </div>
