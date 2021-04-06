@@ -1,6 +1,13 @@
+
+
+
 import { combineReducers } from "redux";
-import contactReducer from "./contactReducer";
-import { postReducer } from "./postReducer";
 import userReducer from "./user";
-const rootReducer = combineReducers({ userReducer,contactReducer, postReducer });
+import { postReducer } from "./postReducer";
+import usersReducer from "./usersReducer";
+const rootReducer = combineReducers({
+  userReducer,
+  usersReducer,
+  postReducer,
+});
 export default rootReducer;

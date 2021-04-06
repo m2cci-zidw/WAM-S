@@ -2,7 +2,8 @@ import {  FAIL_POSTS, GET_POSTS_LOAD, GET_POSTS_SUCCESS } from "../actionTypes/u
 const initState ={
     posts:[],
     isLoading:false,
-    errors:[]
+    errors:[],
+
 }
 //get allPosts 
 export const postReducer =(state=initState ,{type,payload}) => {
@@ -13,6 +14,7 @@ export const postReducer =(state=initState ,{type,payload}) => {
                 return {...state,isLoading:false, posts:payload };
         case FAIL_POSTS: 
                 return {...state,isLoading:false, errors:payload};
+                
         default:
             return state;
     }

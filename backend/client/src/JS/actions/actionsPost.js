@@ -2,7 +2,8 @@ import axios from "axios";
 import { 
     FAIL_POSTS, 
     GET_POSTS_LOAD, 
-    GET_POSTS_SUCCESS 
+    GET_POSTS_SUCCESS, 
+    
 } 
 from "../actionTypes/user";
 //get posts
@@ -16,3 +17,5 @@ export const getPosts = () =>async(dispatch)=> {
       console.log(error);
     }
   };
+
+
