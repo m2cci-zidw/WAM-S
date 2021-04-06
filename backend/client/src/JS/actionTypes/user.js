@@ -5,6 +5,7 @@ export const CURRENT_USER = "CURRENT_USER";
 export const LOAD_USER = "LOAD_USER";
 export const FAIL_USER = "FAIL_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+
 export const VIDE_ERRORS = "VIDE_ERRORS";
 export const UPLOAD_PICTURE = "UPLOAD_PICTURE";
 export const UPLOAD_ERORRS = "UPLOAD_ERORRS";
@@ -21,6 +22,7 @@ export const  GET_POSTS_SUCCESS="GET_POSTS_SUCCESS"
 
 
 
+
 //admin
 /****action contactuser */
 export const GET_CONTACTS_LOAD = "GET_CONTACTS_LOAD"
@@ -30,4 +32,7 @@ export const TOGGLE_TRUE = "TOGGLE_TRUE"
 export const TOGGLE_FALSE = "TOGGLE_FALSE"
 export const GET_CONTACT = "GET_CONTACT"
 
+
+export const DELETE_CONTACT = "DELETE_CONTACT"
+export const UPDATE_CONTACT = "UPDATE_CONTACT"
 
