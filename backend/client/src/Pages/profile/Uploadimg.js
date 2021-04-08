@@ -6,9 +6,7 @@ import{Button,Modal}from 'react-bootstrap'
 const UploadImg = () => {
   const [file, setFile] = useState();
   const dispatch = useDispatch();
-
   const user = useSelector ((state) => state.userReducer.user);
-
   const handlePicture = (e) => {
     e.preventDefault();
     const data = new FormData();
