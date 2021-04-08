@@ -1,0 +1,35 @@
+import React, { useEffect } from 'react'
+import {Card,Button}from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { deletePost, getPosts } from '../../JS/actions/actionsPost'
+
+
+import './CardAdmin.css'
+
+const CardPosteOneUser = ({post}) => {
+    const dispatch = useDispatch()
+
+       useEffect(() => {
+        dispatch(getPosts());
+       }, [dispatch]);
+    return (
+        <div className="UserCard"> 
+
+            <Card className="UserCard">
+            <Card.Img  variant="top" src={ post.picture } alt="imagepost" />
+            <Card.Body className="contentCard" >
+                
+                <Card.Text>
+                {post.message}
+                </Card.Text>
+                {post._id}
+
+                <Button variant="danger" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
+                
+            </Card.Body>
+            </Card>
+        </div>
+    )
+}
+
+export default CardPosteOneUser

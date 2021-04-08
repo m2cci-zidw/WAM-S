@@ -13,7 +13,11 @@ import Footer from './Components/Footer';
 import NavBar from '../src/Components/navbar/NavBar'
 import { currentUser } from './JS/actions/user';
 import PrivetRoute from './router/PrivetRoute';
+
+import PosteOneUser from './Pages/Admin/PosteOneUser';
 import Admin from './Pages/Admin/Admin';
+import AllPosts from './Pages/Admin/AllPosts';
+
 
 
 
@@ -33,7 +37,11 @@ function App() {
        <Route exact path="/" component={LandPage}/>
        <Route path="/signin" component={SignIn}/>
        <Route path="/signup" component={SignUp}/>
-       <Route path="/admin" component={Admin}/>
+       <Route  path="/admin" component={Admin}/>
+       <Route  path="/adminallposts" component={AllPosts}/>
+       <Route path="/adminpostuser" component={PosteOneUser}/>
+
+       
 
        <PrivetRoute path="/profile" component={Profile} />
 

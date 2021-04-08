@@ -1,4 +1,4 @@
-import {  FAIL_POSTS, GET_POSTS_LOAD, GET_POSTS_SUCCESS
+import {   FAIL_POSTS, GET_POSTS_LOAD, GET_POSTS_SUCCESS
 // , TOGGLE_LIKE,TOGGLE_UNLIKE 
 } from "../actionTypes/user"
 const initState ={
@@ -17,6 +17,9 @@ export const postReducer =(state=initState ,{type,payload}) => {
                 return {...state,isLoading:false, posts:payload };
         case FAIL_POSTS: 
                 return {...state,isLoading:false, errors:payload};
+        // case DELETE_POST:
+        //             return {...state,isLoading:false, posts:payload }
+        //             return state.filter((post) => post._id !== action.payload.postId);
                 // //liked-unlike post
                 // case TOGGLE_LIKE: 
                 // return {...state,isLiked:true};

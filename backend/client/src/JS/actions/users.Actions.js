@@ -22,7 +22,7 @@ export const getAllUsers = () => async (dispatch) => {
 //  // get oneUser  payload:res.data.getUser
 export const getOneUser = (id) => async (dispatch) => {
   try {
-      const res = await axios.get(`/api/contacts/${id}`)
+      const res = await axios.get(`/api/users/${id}`)
       dispatch({ type: GET_CONTACT, payload: res.data.getUser })
   } catch (error) {
       console.log(error)
@@ -31,7 +31,7 @@ export const getOneUser = (id) => async (dispatch) => {
 // // // delete contact
 export const deleteUser = (id) => async (dispatch) => {
   try {
-      await axios.delete(`/api/contacts/${id}`)
+      await axios.delete(`/api/users/${id}`)
       dispatch(getAllUsers())
   } catch (error) {
       console.log(error)
@@ -40,7 +40,7 @@ export const deleteUser = (id) => async (dispatch) => {
 // edit a contact
 export const editUser = (id, newUser) => async (dispatch) => {
   try {
-      await axios.put(`/api/contacts/${id}`, newUser)
+      await axios.put(`/api/users/${id}`, newUser)
       dispatch(getAllUsers())
   } catch (error) {
       console.log(error)
