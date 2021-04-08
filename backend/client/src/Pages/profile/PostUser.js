@@ -12,7 +12,12 @@ const PostUser = ({user}) => {
     }, [dispatch])
     return (
         <div>
-            {posts.filter(post=>post.posterId===user._id).map(post=> <Card post={post} key={post._id}/> )}
+            {
+                user?
+            posts.filter(post=>post.posterId===user._id).map(post=> <Card post={post} key={post._id}/> )
+            :
+            null
+            }
         </div>
     )
 }
