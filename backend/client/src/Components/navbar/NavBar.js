@@ -28,8 +28,8 @@ const NavBar = () => {
         <Link to="/profile" className="Btn">
               <Nav href="/">Profil</Nav>
         </Link>
-        <Link to="/" className="Btn">
-              <Nav href="/">test</Nav>
+        <Link to="/admin" className="Btn">
+              <Nav href="/">Admin</Nav>
         </Link>
     
       {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">

@@ -5,7 +5,7 @@ const initState = {
    loadContacts: false,
    errors: [],
    isEdit: false,
-   user: {} //save get onecontact
+   user: {}, //save get onecontact
 }
 const usersReducer = (state = initState, { type, payload }) => {
    switch (type) { 

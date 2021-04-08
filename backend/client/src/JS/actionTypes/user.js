@@ -36,3 +36,7 @@ export const GET_CONTACT = "GET_CONTACT"
 export const DELETE_CONTACT = "DELETE_CONTACT"
 export const UPDATE_CONTACT = "UPDATE_CONTACT"
 
+
+//    /*******ISLIKED POST ON Tests */
+// export const TOGGLE_LIKE = "TOGGLE_LIKE"
+// export const TOGGLE_UNLIKE = "TOGGLE_UNLIKE"

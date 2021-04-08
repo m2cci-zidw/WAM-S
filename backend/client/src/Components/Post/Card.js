@@ -1,26 +1,26 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { useSelector,useDispatch} from 'react-redux'
-import { getAllUsers } from "../../JS/actions/users.Actions";
+
 import './Card.css'
+import { getAllUsers } from "../../JS/actions/users.Actions";
+import LikeBtn from './LikeBtn';
+import CardComment from './CardComment';
+
+
 const Card = ({post}) => {
-    // const isLoading = useSelector(state => state.postReducer.isLoading)
+    const [showComments, setShowComments] = useState(false);
+
      const users = useSelector(state => state.usersReducer.users)  // oneallusers
      const dispatch = useDispatch()
-    useEffect(() => {
+    
+     useEffect(() => {
       dispatch(getAllUsers())
     }, [dispatch])
+
+
     return (
         <div className='card-container' key={post._id}>
-          {/* <h6>{post._id} </h6> */}
-             {/* {!isLoading ? (
-               <div>
-                    <h1>{post._id} </h1>
-                   
-               </div>
-            ):
-            //cas retard- isLoading true
-            <li className='fas fa-spinner fa-spin'></li>
-            } */}
+
         <div className="img_Name">
                     <div className ="card-left">
                             <img src={
@@ -35,7 +35,8 @@ const Card = ({post}) => {
                                 /> 
                                 
                     </div>
-                    <div className ='name-user'>
+                    <div className ='name-user'> 
+                    {/* //name */}
                                     {users.map(user => {
                                         if (user._id === post.posterId) return user.name;
                                         else return null;
@@ -43,22 +44,40 @@ const Card = ({post}) => {
                                     }
                                  </div>
                    
-                    {/* <div className ='bio-user'>
-                        {users.map(user => {
-                            if (user._id === post.posterId) return user.bio;
-                            else return null;
-                        })
-                        }
-                    </div>  */}
+
         </div>       
         <div className="message">
             <p> {post.message}</p>
         </div>
+
         <div className="picturePost">
            {post.picture && (
-              <img src={post.picture} alt="card-pic" className="card-pic" />
+              <img src={post.picture} alt="card-Picture" className="cardPicture" />
             )}
         </div>
+                  
+                    {/* footer_Like-Message */}
+            <div className='footerCard'>
+             
+               <div className='card-comment'>
+
+
+
+
+
+                   {/* //comments */}
+                     <i className="far fa-comment-dots" 
+                     onClick={()=> setShowComments(!showComments)}
+                     />
+
+                     <span> {post.comments.length}</span>
+               </div>
+               
+               <LikeBtn post={post} />
+               <span> {post.likers.length}</span>
+            </div>
+                {showComments && <CardComment post={post} /> }
+            
     </div>
     )
 }

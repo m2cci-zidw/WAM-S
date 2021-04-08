@@ -10,6 +10,7 @@ import './Profile.css'
 
 const Profile = () => {
     const user = useSelector ((state) => state.userReducer.user);
+    
     const [updateImg, setUpdateimage] = useState(false)
     const handleUpdateImg=()=>{
         setUpdateimage(!updateImg)

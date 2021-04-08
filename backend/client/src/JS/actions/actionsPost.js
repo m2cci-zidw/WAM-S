@@ -3,6 +3,10 @@ import {
     FAIL_POSTS, 
     GET_POSTS_LOAD, 
     GET_POSTS_SUCCESS, 
+ 
+//  TOGGLE_LIKE,
+//  TOGGLE_UNLIKE
+ 
     
 } 
 from "../actionTypes/user";
@@ -18,4 +22,15 @@ export const getPosts = () =>async(dispatch)=> {
     }
   };
 
+  // //like unliked
+  // export const toggleUnLike = ()=>{
+  //   return {
+  //     type : TOGGLE_UNLIKE
+  //   }
+  // }
 
+  // export const toggleLike = ()=>{
+  //   return {
+  //     type : TOGGLE_LIKE
+  //   }
+  // }
