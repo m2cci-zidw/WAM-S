@@ -21,10 +21,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2",
     "multer": "^2.0.0-rc.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "reactjs-popup": "^2.0.4"
   },
   "devDependencies": {
     "concurrently": "^6.0.0"
   }
-  
 }
