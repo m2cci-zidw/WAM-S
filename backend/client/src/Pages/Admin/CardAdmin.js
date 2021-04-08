@@ -1,12 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {Card,Button}from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { deleteUser, getAllUsers } from '../../JS/actions/users.Actions'
+import{Link}from 'react-router-dom'
 
+import './CardAdmin.css'
+// import PosteOneUser from './PosteOneUser'
 const CardAdmin = ({user}) => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+       dispatch(getAllUsers())
+    }, [dispatch])
+    
     return (
-        <div>
-            <h1>Hello admin</h1>
-            {console.log(user)}
-            <h1>{user.name}</h1>
+        <div className="UserCard">
+            <Card className="UserCard">
+            <Card.Img className="ImgUserCard" variant="top" src={user.picture} alt={user.name} />
+            <Card.Body className="contentCard" >
+                <Card.Title>{user.name}</Card.Title>
+                <Card.Title>{user.email}</Card.Title>
+
+                <Card.Text>
+                {user.bio}
+                </Card.Text>
+                <Button variant="danger" onClick={()=>dispatch(deleteUser(user._id))}>Delete</Button>
+                <Link to= {{pathname:"/adminpostuser", user:user}}>
+                <Button variant="danger" >Postes</Button>
+                {/* <PosteOneUser user={user}/> */}
+                </Link>
+                
+            </Card.Body>
+            </Card>
         </div>
+        
+
+        
+           
+
     )
 }
 

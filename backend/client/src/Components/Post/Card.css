@@ -131,7 +131,11 @@ background: #A46948;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     background: #4b4a49;
   }
-
+/* .pictureOfAddPost{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+} */
   .userInfo{
     margin: 10px auto;
     width:70px;

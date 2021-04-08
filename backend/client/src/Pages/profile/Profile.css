@@ -26,3 +26,18 @@ body {
     width: 500px;
     border: none;
 }
+
+.ContainerPostProfil{
+    display: flex;
+}
+
+.postProfil{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imgPostProfil{
+    width: 80%;
+}
