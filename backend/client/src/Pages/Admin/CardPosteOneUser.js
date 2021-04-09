@@ -24,7 +24,7 @@ const CardPosteOneUser = ({post}) => {
                 </Card.Text>
                 {post._id}
 
-                <Button variant="danger" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
+                <Button variant="info" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
                 
             </Card.Body>
             </Card>

@@ -1,18 +1,22 @@
 .card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid navy;
-    border-radius: 10px;
-    width: 700px;
-    margin: 20px auto;
-    /***/
-    -webkit-box-shadow: -9px 10px 18px 11px #000000; 
-    box-shadow: -9px 10px 18px 11px #000000;
-    background: #A4957B;
-  }
-  /* .fa-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 6px solid rgb(128, 47, 0); */
+  width: 700px;
+  margin: 20px auto;
+
+  /***/
+  -webkit-box-shadow: -9px 10px 18px 11px #000000;
+  box-shadow: -9px 10px 18px 11px #000000;
+  background: #a4957b;
+  /******border**/
+  -webkit-border-radius: 16px 16px 40px 0px;
+  -moz-border-radius: 16px 16px 40px 0px;
+  border-radius: 16px 16px 40px 0px;
+}
+/* .fa-spinner {
     width: 300px;
     margin: auto;
     color: green;
@@ -20,154 +24,165 @@
     justify-content: center;
     align-items: center;
   } */
-  /* .name-user {
-    border:2px dashed black;
-    width: 50px;
-    height:50px;
-    margin-left: 400px;
-    display: flex;
-  } */
- 
+.name-user {
+  width: 50px;
+  height: 50px;
+  margin-left: 6px;
+  margin-top: 10px;
+  display: flex;
+}
 
-.img_Name{
-    display: flex;
-    border-radius: 10px;
-    width: 100%;
-    height: 50px;
+.img_Name {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  /* border: 6px solid rgb(99, 10, 200); */
+  background-color: #343a40;
+  align-items: center;
+  color: wheat;
+  /*******border****/
+  -webkit-border-radius: 16px 16px 0px 0px;
+  -moz-border-radius: 16px 16px 0px 0px;
+  border-radius: 16px 16px 0px 0px;
+  /***/
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    -9px 10px 18px 11px rgba(0, 0, 0, 0);
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    -9px 10px 18px 11px rgba(0, 0, 0, 0);
+}
 
-    /***/
-    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -9px 10px 18px 11px rgba(0,0,0,0); 
-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -9px 10px 18px 11px rgba(0,0,0,0);
+.imgUser {
+  width: 40px;
+  margin: 5px auto;
+  border-radius: 50px;
+  margin-left: 5px;
+}
 
-    
-}  
+.picturePost {
+  /* width: 400px;
+    height: 600px; */
+}
+.cardPicture {
+  margin: 5px auto;
+  width: 630px;
+  max-height: 300px;
+  border-radius: 20px;
+}
 
+/* -------Footer Components:  LikeBTN---------- */
 
-  .imgUser{
-      width: 40px;
-      margin:  5px auto;
-      border-radius: 50px;
+.footerCard {
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid blue; */
+  border-radius: 10px;
+  margin: 10px auto;
+  width: 90%;
+}
 
-  }
-  
-
-  /* .picturePost{
-    width: 400px;
-    height: 600px;
-
-  } */
-  .cardPicture{
-    margin: 5px auto;
-    width: 630px;
-    max-height: 300px;
-    border-radius: 20px;
-
-
-  }
-
-  /* -------Footer Components:  LikeBTN---------- */
-
-  .footerCard{
-    display: flex;
-    justify-content: space-between;
-    /* border: 2px solid blue; */
-    border-radius: 10px;
-    margin: 10px auto ;
-    width: 90%;
-  }
-
-  .fa-comment-dots, .fa-heart{
-    cursor: pointer;
-  }
-
-
-
-
-
-
-
-
-
+.fa-comment-dots,
+.fa-heart {
+  cursor: pointer;
+}
 
 /*NB:******partie components : CardComment.js*************/
-  .commentClient{
-    background-color: rgb(198, 152, 184);
-    border: 6px solid green;
-  }
+.commentClient {
+  background-color: rgb(198, 152, 184);
+  border: 6px solid green;
+}
 
-  .commentContainer{
-    /* margin: 10px ;
+.commentContainer {
+  /* margin: 10px ;
     border-radius: 10px */
 
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-background: #A46948;
-  };
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  background: #a46948;
+}
 
+/******test coeur likes***/
+.coeurRed {
+  background-color: crimson;
+  color: red;
+}
+.coeurNoir {
+  background-color: black;
+}
 
+/********Post ->NewPost**111******/
+.postContainer {
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 20px;
+  /* border: 4px solid rgb(217, 255, 0); */
 
-  /******test coeur likes***/
-  .coeurRed{
-    background-color: crimson;
-    color:red
-  } 
-  .coeurNoir{
-    background-color: black;
+  /*********/
+  border: 3px solid #1c6ea4;
+  border-radius: 2px 60px 0px 60px;
 
-  }
+  /******/
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  background: #343a40;
+}
 
-
-
-
-
-  /********Post ->NewPost********/
-  .postContainer{
-    margin: 20px auto;
-    width: 50%;
-    border-radius: 20px;
-
-    /******/
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-    background: #4b4a49;
-  }
-/* .pictureOfAddPost{
+.pictureOfAddPost {
   width: 100px;
   height: 100px;
   border-radius: 50px;
-} */
-  .userInfo{
-    margin: 10px auto;
-    width:70px;
-    border: 2px solid navy;
-    
-  }
+  /*********/
+}
+.nameUser {
+  color: #e0dfdc;
+  letter-spacing: 0.1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
+    0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
+    0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a,
+    0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212,
+    0 22px 30px rgba(0, 0, 0, 0.9);
+  color: #e0dfdc;
+}
 
-  .inputFormeClient{
-    border: 4px solid rgb(3, 88, 21);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-    margin: 5px auto;
-  }
+.userInfo {
+  margin: 10px auto;
+  margin-bottom: 20px;
+  width: 100px;
+  /* border: 2px solid navy; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /****/
+}
 
-    .icon{
+.inputFormeClient {
+  /* border: 4px solid rgb(3, 88, 21); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 5px;
+  width: 60%;
+  margin: 0px auto;
+}
+
+/* .icon{
     border: 4px solid rgb(194, 64, 4);
 
-  }
-  .inputForm{
-    
-    margin: 5 auto;
-    border-radius: 8px;
-    /* text-align: center; */
-    border: 2px solid rgb(56, 56, 54);
-    height: 40px;
+  } */
+.inputForm {
+  margin: 5 auto;
+  border-radius: 8px;
+  /* text-align: center; */
+  border: 2px solid rgb(56, 56, 54);
+  height: 40px;
+}
 
-  }
+.fa-file-upload {
+  cursor: pointer;
+}
 
- .fa-file-upload {
-    cursor: pointer;
-    border: 2px solid navy;
-
-  }
+/*********************/
+/* .WrapperComments {
+  border: 4px solid rgb(224, 224, 10);
+} */

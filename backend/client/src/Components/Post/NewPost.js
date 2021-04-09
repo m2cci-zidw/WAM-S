@@ -32,6 +32,8 @@ const NewPost = () => {
         setPostPicture(URL.createObjectURL(e.target.files[0]));
         setFile(e.target.files[0]);
       }; 
+        //test btn
+      const [upLoadFile, setUpLoadFile] = useState(false)
 
       useEffect(() => {
          dispatch(currentUser())
@@ -48,15 +50,13 @@ const NewPost = () => {
                 {/* img-User */}
        {/* <NavLink exact to='/profil'> */}
        <div className='userInfo'>
-           <h2> {user.name}</h2>
-          
-           <br/>
+           <h2 className="nameUser"> {user.name}</h2>
            <img className="pictureOfAddPost" src={user.picture}  alt='img-user'/>     
        </div>
         {/* </NavLink> */}
 
                 {/* Input user message */}
-   <div className='inputFormeClient'>
+      <div className='inputFormeClient'>
 
            <textarea name="message" id='message' placeholder ="What's Up.. ?"
            onChange={(e)=>setMessage(e.target.value)} 
@@ -66,13 +66,17 @@ const NewPost = () => {
                 {/* post file */}
            <div className='footer-Form'>
                    <div className='icon'>
-                               <i className="fas fa-file-upload fileUpload" />
-                           <input className='inputForm' type="file" id='file-upload' name='file' accept=".jpg, .jpeg , .png" 
+                               <i className="fas fa-file-upload fileUpload"
+                               onClick={()=>setUpLoadFile(!upLoadFile)}
+                               />
+                                {upLoadFile && 
+                          ( <input className='inputForm' type="file" id='file-upload' name='file' accept=".jpg, .jpeg , .png" 
                            onChange={(e) => handlePicture(e)}
-                           />
+                           />)}
                    </div> 
            </div>
-           <button onClick={()=>handlePost()} > AddPost</button>
+
+           <button style={{width:'100px',background:'navy'}}  onClick={()=>{handlePost();setUpLoadFile(!upLoadFile)}} > AddPost</button>
          </div>
        
 
