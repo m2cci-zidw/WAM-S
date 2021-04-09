@@ -2,7 +2,8 @@
 const express= require('express')
 const cors = require('cors');
 require("dotenv").config()
-const connectDB= require('./config/connectDB')
+const connectDB= require('./config/connectDB');
+const adminAuth = require('./Middleware/adminAuth');
 
 //instance express
 const app= express()
@@ -26,7 +27,11 @@ app.use(express.json())
 
 // routes : Users & Post
 app.use('/api/users',require('./routes/user.routes'))
-app.use('/api/post' , require('./routes/post.routes'))
+app.use('/api/post' , require('./routes/post.routes'));
+app.use('/api/admin' ,adminAuth , require('./routes/admin.routes'));
+
+
+
 
 
 

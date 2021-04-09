@@ -1,7 +1,14 @@
 const mongoose=require('mongoose')
 const schema = mongoose.Schema;
 
+
 const userSchema= new schema({
+  role: {
+    // Role of user it will be (normal or admin )
+    type: Number,
+    default: 0,
+  },
+  
     name:{
         type:String,
         required:true,

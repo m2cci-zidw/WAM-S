@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from "react";
 import { useDispatch, useSelector} from "react-redux";
 // import { register, videErrors } from "../../JS/actions/user";
-import {Link}from 'react-router-dom'
+import {Link, Redirect}from 'react-router-dom'
 import { register, videErrors } from "../../JS/actions/user";
 import Errors from "../../Components/Errors";
 
@@ -11,15 +11,18 @@ const SignUp = ({history}) => {
   const [user, setuser] = useState({});
   const errors = useSelector ((state) => state.userReducer.errors);
   const dispatch = useDispatch();
+  useEffect(() => {
+    return () => {
+      dispatch(videErrors());
+    };
+  }, [dispatch]);
+
+
 
   const handleChange = (e) => {
     setuser({ ...user, [e.target.name]: e.target.value });
   };
-  useEffect(() => {
-    return () => {
-      dispatch(videErrors ());
-    };
-  }, [dispatch]);
+  
     return (
         <div>
             <div className="content-signUp">
