@@ -7,14 +7,18 @@ import LikeBtn from './LikeBtn';
 import CardComment from './CardComment';
 
 
+
+
 const Card = ({post}) => {
     const [showComments, setShowComments] = useState(false);
+    
 
      const users = useSelector(state => state.usersReducer.users)  // oneallusers
      const dispatch = useDispatch()
     
      useEffect(() => {
       dispatch(getAllUsers())
+     
     }, [dispatch])
 
 
@@ -54,7 +58,7 @@ const Card = ({post}) => {
 
         <div className="picturePost">
            {post.picture && (
-              <img src={post.picture} alt="card-Picture" className="cardPicture" />
+              <img src={post.picture} alt="card-Pi" className="cardPicture" />
             )}
         </div>
                   

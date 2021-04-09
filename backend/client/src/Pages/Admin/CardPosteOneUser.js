@@ -16,7 +16,7 @@ const CardPosteOneUser = ({post}) => {
         <div className="UserCard"> 
 
             <Card className="UserCard">
-            <Card.Img  variant="top" src={ post.picture } alt="imagepost" />
+            <Card.Img  variant="top" src={ post.picture } alt="imagepost"  className="ImagePostAdmin"/>
             <Card.Body className="contentCard" >
                 
                 <Card.Text>

@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
-import { getPosts } from '../JS/actions/actionsPost'
+import { getPosts,  } from '../JS/actions/actionsPost'
 import Card from './Post/Card'
 
 const Thread = () => {

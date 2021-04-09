@@ -13,7 +13,7 @@ const UpdateProfil = () => {
         const handleUpdate = () => {
                     // dispatch(updateBio(user._id, bio));
                     dispatch(updateBio(user._id,bio))
-                    console.log(user._id)
+                    
                     setUpdateForm(false);}
 
 
