@@ -5,6 +5,7 @@ import { deleteUser, getAllUsers } from '../../JS/actions/users.Actions'
 import{Link}from 'react-router-dom'
 
 import './CardAdmin.css'
+import { adminDeleteUser } from '../../JS/actions/actionsAdmin'
 // import PosteOneUser from './PosteOneUser'
 const CardAdmin = ({user}) => {
     const dispatch = useDispatch()
@@ -23,7 +24,7 @@ const CardAdmin = ({user}) => {
                 <Card.Text>
                 {user.bio}
                 </Card.Text>
-                <Button variant="danger" onClick={()=>dispatch(deleteUser(user._id))}>Delete</Button>
+                <Button variant="danger" onClick={()=>dispatch(adminDeleteUser(user._id))}>Delete</Button>
                 <Link to= {{pathname:"/adminpostuser", user:user}}>
                 <Button variant="danger" >Postes</Button>
                 {/* <PosteOneUser user={user}/> */}
