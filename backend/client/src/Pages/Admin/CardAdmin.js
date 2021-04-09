@@ -16,21 +16,26 @@ const CardAdmin = ({user}) => {
     return (
         <div className="UserCard">
             <Card className="UserCard">
-            <Card.Img className="ImgUserCard" variant="top" src={user.picture} alt={user.name} />
-            <Card.Body className="contentCard" >
-                <Card.Title>{user.name}</Card.Title>
-                <Card.Title>{user.email}</Card.Title>
+                <Card.Img className="ImgUserCard" variant="top" src={user.picture} alt={user.name} />
+                <Card.Body className="contentCard" >
+                    <Card.Title>{user.name}</Card.Title>
+                    <Card.Title>{user.email}</Card.Title>
 
-                <Card.Text>
-                {user.bio}
-                </Card.Text>
-                <Button variant="danger" onClick={()=>dispatch(adminDeleteUser(user._id))}>Delete</Button>
-                <Link to= {{pathname:"/adminpostuser", user:user}}>
-                <Button variant="danger" >Postes</Button>
-                {/* <PosteOneUser user={user}/> */}
-                </Link>
-                
-            </Card.Body>
+
+                    <Card.Text>
+                    {user.bio}
+                    </Card.Text>
+                    
+                    <div className='ContainerBTN'>
+                        <Button variant="danger" onClick={()=>dispatch(deleteUser(user._id))}>Delete</Button>
+                        <Link to= {{pathname:"/adminpostuser", user:user}}>
+                        <Button variant="danger" >Postes</Button>
+                        {/* <PosteOneUser user={user}/> */}
+                        </Link>
+                    </div>
+                    
+                </Card.Body>
+
             </Card>
         </div>
         

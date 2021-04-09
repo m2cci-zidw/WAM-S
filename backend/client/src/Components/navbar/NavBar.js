@@ -18,7 +18,7 @@ const NavBar = () => {
         <div>
 
   {/* // nv navbar */}
-  <Navbar bg="dark" expand="lg" variant="dark" >
+  <Navbar bg="dark" expand="lg" variant="dark"  className='nabbar'>
   {/* <Navbar.Brand href="#home"> <img src={logo} alt="wams" className="logo" /> </Navbar.Brand> */}
   <Navbar.Brand href="#home"> WAM's </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />

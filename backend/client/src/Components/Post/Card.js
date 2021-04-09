@@ -21,33 +21,35 @@ const Card = ({post}) => {
     return (
         <div className='card-container' key={post._id}>
 
-        <div className="img_Name">
-                    <div className ="card-left">
-                            <img src={
-                                    users.map(user => {
-                                        if (user._id === post.posterId) return user.picture ;
-                                        else return null;
-                                    })
-                                    .join("") 
-                                }
-                                alt="poster-pic"
-                                className="imgUser"
-                                /> 
-                                
-                    </div>
-                    <div className ='name-user'> 
-                    {/* //name */}
-                                    {users.map(user => {
-                                        if (user._id === post.posterId) return user.name;
-                                        else return null;
-                                    })
-                                    }
-                                 </div>
-                   
+            <div className="img_Name">
+                                <div className ="card-left">
+                                    {/* //post home maroon */}
+                                        <img src={
+                                                users.map(user => {
+                                                    if (user._id === post.posterId) return user.picture ;
+                                                    else return null;
+                                                })
+                                                .join("") 
+                                            }
+                                            alt="poster-pic"
+                                            className="imgUser"
+                                            /> 
+                                            
+                                </div>
+                                <div className ='name-user'> 
+                                    {/* //name */}
+                                        {users.map(user => {
+                                            if (user._id === post.posterId) return user.name;
+                                            else return null;
+                                        })
+                                        }
+                                    </div>
+            </div>  
 
-        </div>       
+
+
         <div className="message">
-            <p> {post.message}</p>
+            <strong> {post.message}</strong>
         </div>
 
         <div className="picturePost">

@@ -58,17 +58,10 @@ const CardComment = ({post}) => {
  */}
 
 
-
-
-
-
-
-
-
                     </div>
                 )
            } )}
-           i right the comment by my pc
+           <i>right your comments...</i>
 
 
            

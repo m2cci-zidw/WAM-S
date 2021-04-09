@@ -17,3 +17,10 @@
     margin-left: 20px !important;
     
 }
+.nabbar{
+    border-bottom: 3px solid royalblue !important;
+    /********/
+    /* position: fixed;
+    width: 100%; */
+
+}
