@@ -11,9 +11,7 @@ const Card = ({post}) => {
                                 alt="poster-pic"
                                 className="imgPostProfil"
                                 /> 
-                                
-                    
-            
+
         </div>
 
         </div>
