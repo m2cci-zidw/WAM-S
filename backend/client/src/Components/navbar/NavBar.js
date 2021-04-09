@@ -11,6 +11,8 @@ import { logout } from '../../JS/actions/user'
 const NavBar = () => {
     const dispatch = useDispatch()
     const isAuth = useSelector((state) => state.userReducer.isAuth)
+    const user = useSelector((state) => state.userReducer.user)
+
     
     return (
         <div>
@@ -28,9 +30,15 @@ const NavBar = () => {
         <Link to="/profile" className="Btn">
               <Nav href="/">Profil</Nav>
         </Link>
-        <Link to="/admin" className="Btn">
+
+
+       { user && user.role ===1 ?
+       <Link to="/admin" className="Btn">
               <Nav href="/">Admin</Nav>
         </Link>
+        :
+        null
+        }
     
       {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

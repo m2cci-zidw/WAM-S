@@ -5,6 +5,7 @@ import { deleteUser, getAllUsers } from '../../JS/actions/users.Actions'
 import{Link}from 'react-router-dom'
 
 import './CardAdmin.css'
+import { adminDeleteUser } from '../../JS/actions/actionsAdmin'
 // import PosteOneUser from './PosteOneUser'
 const CardAdmin = ({user}) => {
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ const CardAdmin = ({user}) => {
                     <Card.Title>{user.name}</Card.Title>
                     <Card.Title>{user.email}</Card.Title>
 
+
                     <Card.Text>
                     {user.bio}
                     </Card.Text>
@@ -33,6 +35,7 @@ const CardAdmin = ({user}) => {
                     </div>
                     
                 </Card.Body>
+
             </Card>
         </div>
         
