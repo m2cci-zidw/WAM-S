@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import Errors from "../../Components/Errors";
 import { login, videErrors } from "../../JS/actions/user";
 import './SignIn.css'
@@ -11,7 +12,7 @@ const SignIn = ({history}) => {
 
   const dispatch = useDispatch();
   const errors = useSelector((state) => state.userReducer.errors);
-  console.log(errors);
+  
   const handleChange = (e) => {
     setuser({ ...user, [e.target.name]: e.target.value });
   };
@@ -20,6 +21,9 @@ const SignIn = ({history}) => {
       dispatch(videErrors ());
     };
   }, [dispatch]);
+
+ 
+  
 
     return (
         <div className="content-signin">

@@ -4,13 +4,16 @@ const { uploadProfil } = require('../controllers/upload.controlleurs');
 const multer=require('multer')
 const upload=multer()
 
+
+
 const{signIn,signUp}=require('../controllers/auth.controlleurs');
 // (signUp & signIN FN) =>auth.controlleurs
 const {getAllUsers, userInfo,updateUser, deleteUser, follow, unfollow} =require('../controllers/user.controlleurs');
 //test token (expiration & if he have a valid key)
 const isAuth = require('../Middleware/auth');
 //auth validation compte (file user-middlware)
-const {registrationValidation,loginValidation, validation}=require('../Middleware/user')
+const {registrationValidation,loginValidation, validation}=require('../Middleware/user');
+
 
 
 //signUp
@@ -40,6 +43,7 @@ router.patch('/unfollow/:id',unfollow)
 
 //********************upload Image******************* */
 router.post('/upload',upload.single('file'),uploadProfil)
+
 
 
 module.exports = router
