@@ -1,24 +1,34 @@
 import React,{useEffect,useState} from 'react'
 import {useSelector , useDispatch} from 'react-redux'
+import { getPosts, likePost, unlikePost } from '../../JS/actions/actionsPost'
 import { currentUser } from '../../JS/actions/user'
+
 
 import './Card.css'
 
 
 const LikeBtn = ({post}) => {
-  
-    // const [like, setLike] = useState(post.likers.lenght) //3likes
+   
 
     const [isLiked, setisLiked] = useState(false)
-
- 
 
     const user = useSelector(state => state.userReducer.user)
     const isAuth = useSelector(state => state.userReducer.isAuth)
     const dispatch = useDispatch()
+    const HandleLike=()=>{
+        
+        if (isAuth){
+
+            setisLiked(!isLiked)
+            isLiked? dispatch(unlikePost(post._id,user._id),getPosts()):dispatch(likePost(post._id,user._id),getPosts())
+        }
+
+    }
+
+
 
     useEffect(() => {
-        dispatch(currentUser())
+        dispatch(currentUser(),getPosts())
         if(isAuth){
 
               if(post.likers.includes(user._id))
@@ -30,11 +40,13 @@ const LikeBtn = ({post}) => {
 
     return (
         <div>
-             {/* <i className="far fa-heart"  onClick={dispatch(toggleLike())} /> */}
+             
              <i  
-            className={ isLiked ? "far fa-heart" : "fas fa-heartbeat" } 
-             onClick={()=>setisLiked(!isLiked)} 
+            className={ isLiked ?  "fas fa-heartbeat" :"far fa-heart" } 
+            onClick={()=>HandleLike()}
              />
+
+
  
         </div>
     )

@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import UpdateProfil from './UpdateProfil';
 import UploadImg from './Uploadimg';
+
 
 import PostUser from './PostUser';
 import './Profile.css'
@@ -10,6 +11,8 @@ import './Profile.css'
 
 const Profile = () => {
     const user = useSelector ((state) => state.userReducer.user);
+   
+    
     
     const [updateImg, setUpdateimage] = useState(false)
     const handleUpdateImg=()=>{
@@ -35,8 +38,8 @@ const Profile = () => {
                 </div>
                 
                 <div className="media-body mb-5 text-white">
-                  <h4 className="mt-0 mb-0">{user && user.name}</h4>
-                  <p className="small mb-4"> <i className="fas fa-map-marker-alt mr-2" /></p>
+                  <h4 className="mt-0 mb-3">{user && user.name}</h4>
+                  {/* <p className="small mb-4"> <i className="fas fa-map-marker-alt mr-2" /></p> */}
                 </div>
               </div>
             </div>
@@ -68,6 +71,9 @@ const Profile = () => {
               <div className="row">
 
                   <PostUser user={user} />
+                  
+
+                  
                  
 
                 {/* <div className="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" className="img-fluid rounded shadow-sm" /></div>

@@ -11,7 +11,7 @@ const PostUser = ({user}) => {
         dispatch(getPosts())
     }, [dispatch])
     return (
-        <div>
+        <div className="Container-Post-User">
              {
                 user?
             posts.filter(post=>post.posterId===user._id).map(post=> <Card post={post} key={post._id}/> )

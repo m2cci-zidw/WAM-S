@@ -5,7 +5,7 @@ import { deleteUser, getAllUsers } from '../../JS/actions/users.Actions'
 import{Link}from 'react-router-dom'
 
 import './CardAdmin.css'
-import { adminDeleteUser } from '../../JS/actions/actionsAdmin'
+
 // import PosteOneUser from './PosteOneUser'
 const CardAdmin = ({user}) => {
     const dispatch = useDispatch()

@@ -1,7 +1,7 @@
 
 import { Route, Switch } from 'react-router';
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Errors from './Pages/errors/Errors';
 import LandPage from './Pages/landPage/LandPage';
