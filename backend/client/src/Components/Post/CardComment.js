@@ -22,9 +22,9 @@ const CardComment = ({post}) => {
                                             else return null;
                                         }).join("")  }alt="commenPicture"/> 
                                     {/* commenterPseudo */}
-                                    <div className='commenterName'>
+                                    {/* <div className='commenterName'> */}
                                         <strong>{comment.commenterName} </strong>
-                                    </div>   
+                                    {/* </div>    */}
                                     <p>{comment.text} </p>         
                         </div>
 {/* stoped hhhhhhhhhhhhhhhheeeerrre ! */}

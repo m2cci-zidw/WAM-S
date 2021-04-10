@@ -18,15 +18,12 @@ export const postReducer =(state=initState ,{type,payload}) => {
         case FAIL_POSTS: 
                 return {...state,isLoading:false, errors:payload};
 
+
                 case UPDATE_POST:
                     return{
                       ...state,
                       message:payload,
                     }
-
-
-
-
 
         // case DELETE_POST:
         //             return {...state,isLoading:false, posts:payload }

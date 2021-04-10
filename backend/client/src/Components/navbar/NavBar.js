@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import{Navbar,Nav,Form}from 'react-bootstrap'
+import{Navbar,Nav,Form,FormControl,Button}from 'react-bootstrap'
 import './NavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../JS/actions/user'
@@ -8,7 +8,7 @@ import { logout } from '../../JS/actions/user'
 // import logo from "../../assets/logo.png"
 
 
-const NavBar = () => {
+const NavBar = ({setInputSearch}) => {
     const dispatch = useDispatch()
     const isAuth = useSelector((state) => state.userReducer.isAuth)
     const user = useSelector((state) => state.userReducer.user)
@@ -72,8 +72,10 @@ const NavBar = () => {
        
          
     </Nav>
-      {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
-      {/* <Button variant="outline-success">Search</Button> */}
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" 
+       onChange={(e)=>setInputSearch(e.target.value)}
+      />
+      {/* <Button variant="outline-success">Search</Button>  */}
     </Form>
   </Navbar.Collapse>
 </Navbar>
@@ -82,3 +84,5 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+

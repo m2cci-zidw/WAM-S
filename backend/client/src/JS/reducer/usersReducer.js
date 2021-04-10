@@ -17,6 +17,12 @@ const usersReducer = (state = initState, { type, payload }) => {
                 return {...state,errors: payload, loadContacts: false }
        case GET_CONTACT: 
                 return {...state,user: payload }
+
+
+
+
+
+                
        case TOGGLE_TRUE: return {
            ...state,
            isEdit: true
