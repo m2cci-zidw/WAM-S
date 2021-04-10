@@ -8,8 +8,14 @@ import LikeBtn from './LikeBtn';
 import CardComment from './CardComment';
 import { isEmpty } from "../Utiles/Utiles";
 
+
+
 const Card = ({post}) => {
+
     const [showComments, setShowComments] = useState(true);
+
+    
+
      const users = useSelector(state => state.usersReducer.users)  // oneallusers
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +23,7 @@ const Card = ({post}) => {
     
      useEffect(() => {
       dispatch(getAllUsers())
-      !isEmpty(users) && setIsLoading(false);
+
     }, [dispatch])
 
 
@@ -98,8 +104,38 @@ const Card = ({post}) => {
                     
 
         </div>
-        
-</>
+
+
+        <div className="picturePost">
+           {post.picture && (
+              <img src={post.picture} alt="card-Pi" className="cardPicture" />
+            )}
+        </div>
+                  
+                    {/* footer_Like-Message */}
+            <div className='footerCard'>
+             
+               <div className='card-comment'>
+
+
+
+
+
+                   {/* //comments */}
+                     <i className="far fa-comment-dots" 
+                     onClick={()=> setShowComments(!showComments)}
+                     />
+
+                     <span> {post.comments.length}</span>
+               </div>
+               
+               <LikeBtn post={post} />
+               <span> {post.likers.length}</span>
+            </div>
+                {showComments && <CardComment post={post} /> }
+            
+    </div>
+
     )
 }
 export default Card

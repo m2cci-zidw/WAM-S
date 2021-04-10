@@ -36,6 +36,7 @@ body {
 
 .ContainerPostProfil{
     display: flex;
+    justify-content: center;
 }
 
 .postProfil{
@@ -48,3 +49,10 @@ body {
 .imgPostProfil{
     width: 80%;
 }
+
+
+
+.BtnDeleteUpd{
+    width: 100px;
+}
+

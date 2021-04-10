@@ -11,7 +11,7 @@ const PostUser = ({user,inputSearch}) => {
         dispatch(getPosts())
     }, [dispatch])
     return (
-        <div>
+        <div className="Container-Post-User">
              {
                 user?
             posts.filter(post=>post.posterId===user._id)
