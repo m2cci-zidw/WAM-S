@@ -4,7 +4,7 @@ import { getPosts } from '../../JS/actions/actionsPost'
 import Card from './Card'
 
 
-const PostUser = ({user}) => {
+const PostUser = ({user,inputSearch}) => {
     const posts = useSelector(state => state.postReducer.posts)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -14,7 +14,13 @@ const PostUser = ({user}) => {
         <div>
              {
                 user?
-            posts.filter(post=>post.posterId===user._id).map(post=> <Card post={post} key={post._id}/> )
+            posts.filter(post=>post.posterId===user._id)
+            
+            .filter(post=> post && 
+                post.message.toLowerCase().includes(inputSearch.toLowerCase()))
+
+            .map(post=> <Card post={post} key={post._id}/> )
+            
             :
             null
             }

@@ -6,13 +6,13 @@ import NewPost from '../../Components/Post/NewPost'
 
 
 
-const LandPage = () => {
+const LandPage = ({inputSearch}) => {
 
 
 
     return (
         <div className='container-profil'>
-            {/* <Dashboord/> */}
+           
 
             <div className="headerNewPost">
               <NewPost />
@@ -20,7 +20,7 @@ const LandPage = () => {
 
 
             <div className='wrapper-thread'>
-                <Thread/>
+                <Thread inputSearch={inputSearch}  />
             </div>
         </div>
     )

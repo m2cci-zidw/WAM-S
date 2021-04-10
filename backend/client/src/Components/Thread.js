@@ -7,7 +7,7 @@ import { getPosts } from '../JS/actions/actionsPost'
 import Card from './Post/Card'
 import { isEmpty } from './Utiles/Utiles'
 
-const Thread = () => {
+const Thread = ({inputSearch}) => {
     const posts = useSelector(state => state.postReducer.posts)
 
     const dispatch = useDispatch()
@@ -21,7 +21,14 @@ const Thread = () => {
         <div>
             
            <div>
-                {posts.map(post=> 
+                {posts
+                
+                .filter(post=> post && 
+                    post.message.toLowerCase().includes(inputSearch.toLowerCase())
+                    )       
+
+
+                .map(post=> 
                    <Card post={post} key={post._id} /> 
                     )}
             </div>

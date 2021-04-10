@@ -11,26 +11,29 @@ import { isEmpty } from "../Utiles/Utiles";
 const Card = ({post}) => {
     const [showComments, setShowComments] = useState(true);
      const users = useSelector(state => state.usersReducer.users)  // oneallusers
-//   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
      const dispatch = useDispatch()
     
      useEffect(() => {
       dispatch(getAllUsers())
-    //   !isEmpty(users) && setIsLoading(false);
+      !isEmpty(users) && setIsLoading(false);
     }, [dispatch])
 
 
     return (
-        
+        <>
+
+ {/* {isLoading ?  
+                    (<Spinner animation="border" variant="danger" style={{width:'200px'}} />) 
+                    :
+                    <h1>logique</h1> } */}
+     
 
         <div className='card-container' key={post._id}>
                 
-                {/* {isLoading ?  
-                    (<Spinner animation="border" variant="danger" style={{width:'200px'}} />) 
-                    :
-                    (    */}
-{/* <> */}
+               
+
         
         
                     
@@ -93,10 +96,10 @@ const Card = ({post}) => {
                     </div>
                         {showComments && <CardComment post={post} /> }
                     
-{/* </>) } */}
+
         </div>
         
-
+</>
     )
 }
 export default Card

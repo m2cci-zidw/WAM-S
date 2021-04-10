@@ -46,6 +46,7 @@ export const editUser = (id, newUser) => async (dispatch) => {
       console.log(error)
   }
 }
+
 // // // add new contact
 // // export const addContact = (newContact) => async (dispatch) => {
 // //     try {

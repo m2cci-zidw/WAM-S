@@ -17,6 +17,8 @@ export const postReducer =(state=initState ,{type,payload}) => {
                 return {...state,isLoading:false, posts:payload };
         case FAIL_POSTS: 
                 return {...state,isLoading:false, errors:payload};
+
+                
         // case DELETE_POST:
         //             return {...state,isLoading:false, posts:payload }
         //             return state.filter((post) => post._id !== action.payload.postId);
