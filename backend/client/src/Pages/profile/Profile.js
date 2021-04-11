@@ -80,7 +80,7 @@ const Profile = ({inputSearch}) => {
               </div>
               <div className="row">
 
-                  <PostUser user={user}  />
+                 
                   
 
                   <PostUser user={user} inputSearch={inputSearch} />

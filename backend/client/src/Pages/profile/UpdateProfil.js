@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {updateBio} from "../../JS/actions/user";
+import {currentUser, updateBio} from "../../JS/actions/user";
 import {Modal,Button,Form}from "react-bootstrap"
 
 import './Profile.css'
@@ -13,7 +13,7 @@ const UpdateProfil = () => {
   const handleShow = () => setShow(true);
 
   const user = useSelector((state) => state.userReducer.user);
-  const [upUser, setUpUser] = useState({ name: "", bio: "", password: 0 });
+  const [upUser, setUpUser] = useState({ name: user&&user.name, bio: user&&user.bio, password: 0 });
 
 
    
@@ -28,11 +28,15 @@ const UpdateProfil = () => {
  const handleChange = (e) => {
     setUpUser({ ...upUser, [e.target.name]: e.target.value })
 }
+useEffect(() => {
+    dispatch(currentUser)
+    
+}, [dispatch])
     
     return (
         <div>
             <Button variant="primary" onClick={handleShow}>
-                Update info
+                update 
             </Button>
 
             <Modal show={show} onHide={handleClose}>

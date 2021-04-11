@@ -1,61 +1,76 @@
 import React, { useState } from 'react'
 import './Profile.css'
-import {Button}from 'react-bootstrap'
 import { useDispatch} from 'react-redux'
 import { deletePost, updatePost } from '../../JS/actions/actionsPost'
+import {Modal,Button,Form}from "react-bootstrap"
 
 const Card = ({post}) => {
     const dispatch = useDispatch()
-    const [updateForm, setUpdateForm] = useState(false);
-    // const user = useSelector((state) => state.userReducer.user);
-    const [message, setMessage] = useState(post)
-    
-    
-    // const [bio, setBio] = useState(user);
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  
+  const [upPost, setUpPost] = useState({ message: post&&post.message});
+
+
         const handleUpdate = () => {
-                    // dispatch(updateBio(user._id, bio));
-                    dispatch(updatePost(post._id,message))
-                    setUpdateForm(false);}
+                  
+                    dispatch(updatePost(post._id,upPost))
+                    
+        }
+
+ // handlechange
+ const handleChange = (e) => {
+    setUpPost({ ...upPost, [e.target.name]: e.target.value })
+}
+
     
     return (
         <div className="ContainerPostProfil">
-            <Button variant="danger" className="BtnDeleteUpd" onClick={()=>dispatch(updatePost(post._id,message))}>Update</Button>
-            
+
+<Button variant="primary" onClick={handleShow}>
+                update 
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                    <Modal.Body> 
+                        <Form.Control placeholder="Enter new name ..."
+                            name="message"
+                            type="text"
+                            value={upPost.message}
+                            onChange={handleChange}
+                        />
+                </Modal.Body>
+                
+                <Modal.Footer>
+                <Button variant="primary" onClick={()=> {handleClose() ; handleUpdate()}}>
+                Valider 
+                </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+
+
+
+
+
+
+
+
             <div className="postProfil">
 
-
-                {/*  */}
-                {/* <div className="bio-update">
-              {updateForm === false && (
-                <div className="FormBio">
-                    <p onClick={() => setUpdateForm(!updateForm)}>{message && post.message}</p>
-                    <button onClick={() => setUpdateForm(!updateForm)}>
-                    Modifier message
-                    </button>
-                </div>
-                )}
-                {updateForm && (
-                <div className="FormBio">
-                    <textarea className="TextBio"
-                    type="text"
-                    value={message.message}
-                    onChange={(e) => setMessage({...message,message:e.target.value})}
-                    ></textarea>
-                    <button onClick={handleUpdate}>Valider modifications</button>
-                </div>
-                )}
-            </div> */}
-
-            
-            <h4> {post.message}</h4>
-            
-            
+                <h4> {post.message}</h4>
                             <img src={ post.picture }
                                 alt="poster-pic"
                                 className="imgPostProfil"
                                 /> 
-
-        </div>
+             </div>
         <Button variant="danger" className="BtnDeleteUpd" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
 
         </div>

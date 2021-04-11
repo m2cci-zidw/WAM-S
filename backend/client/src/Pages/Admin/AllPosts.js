@@ -22,9 +22,8 @@ const AllPosts = ({inputSearch}) => {
                 </Link>
 
             <div className="contentPostCard">
-                {posts.
-                
-                filter(post=> post && 
+                {posts
+                .filter(post=> post && 
                     post.message.toLowerCase().includes(inputSearch.toLowerCase())
                     )
 

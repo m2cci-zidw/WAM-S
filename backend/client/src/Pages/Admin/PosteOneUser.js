@@ -13,10 +13,11 @@ const PosteOneUser = (props) => {
     }, [dispatch])
     return (
         <div>
+            {console.log(props.location)}
             
              {
                 ( posts) ?
-            posts.filter(post=>post.posterId===props.location.user._id).map(post=> <CardPosteOneUser post={post}/>  )
+            posts.map(post=> <CardPosteOneUser post={post}/>  )
             :
             null
             }
