@@ -13,6 +13,7 @@ const CardPosteOneUser = ({post}) => {
         dispatch(getPosts());
        }, [dispatch]);
     return (
+      
         <div className="UserCard"> 
 
             <Card className="UserCard">
@@ -29,6 +30,7 @@ const CardPosteOneUser = ({post}) => {
             </Card.Body>
             </Card>
         </div>
+       
     )
 }
 

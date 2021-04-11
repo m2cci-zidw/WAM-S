@@ -43,8 +43,8 @@ const CardComment = ({post}) => {
  */}
                     </div>
                 )
-           } )}
-           <i>right your comments...</i>
+            } )}
+            <i>Leave your comments..</i>
         </div>
     )
 }

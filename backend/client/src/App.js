@@ -35,25 +35,16 @@ function App() {
 
         <Route exact path="/" component={() => <LandPage inputSearch={inputSearch} />} />
 
-
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
 
-<Route path="/admin" component={() => <Admin inputSearch={inputSearch} />} />
-
+        <Route path="/admin" component={() => <Admin inputSearch={inputSearch} />} />
         <Route path="/adminallposts" component={() => <AllPosts inputSearch={inputSearch} />}/>
-
-
-        <Route
-          path="/adminpostuser"
-          component={() => <PosteOneUser inputSearch={inputSearch} />}
-        />
-
-
+        <Route path="/adminpostuser" component={() => <PosteOneUser inputSearch={inputSearch} />} />
+       
         <PrivetRoute path="/profile" component={() => <Profile inputSearch={inputSearch} />}/>
-
-
         <Route path="/*" component={Errors} />
+
       </Switch>
       <Footer />
     </div>

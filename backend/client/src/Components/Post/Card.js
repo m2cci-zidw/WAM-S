@@ -12,7 +12,7 @@ import { isEmpty } from "../Utiles/Utiles";
 
 const Card = ({post}) => {
 
-    const [showComments, setShowComments] = useState(true);
+    const [showComments, setShowComments] = useState(false);
 
     
 
@@ -28,7 +28,7 @@ const Card = ({post}) => {
 
 
     return (
-        <>
+        <div>
 
  {/* {isLoading ?  
                     (<Spinner animation="border" variant="danger" style={{width:'200px'}} />) 
@@ -36,16 +36,14 @@ const Card = ({post}) => {
                     <h1>logique</h1> } */}
      
 
+                {/* [all content card marron] */}
         <div className='card-container' key={post._id}>
-                
-               
 
-        
-        
-                    
+                    {/* imgUser & him name */}
                     <div className="img_Name">
+                                            {/* userimgHead post  */}
                                         <div className ="card-left">
-                                            {/* //post home maroon */}
+                                        
                                                 <img src={
                                                         users.map(user => {
                                                             if (user._id === post.posterId) return user.picture ;
@@ -58,10 +56,12 @@ const Card = ({post}) => {
                                                     /> 
                                                     
                                         </div>
+
+                                                {/* user.name */}
                                         <div className ='name-user'> 
-                                            {/* //name */}
+                                            {/* user-name post*/}
                                                 {users.map(user => {
-                                                    if (user._id === post.posterId) return user.name;
+                                                    if (user._id === post.posterId) return user.name ;
                                                     else return null;
                                                 })
                                                 }
@@ -69,70 +69,48 @@ const Card = ({post}) => {
                     </div>  
         
         
+                       {/* message post  */}
+                    <div className="message">
+                        <strong> {post.message}</strong>
+                    </div>
         
-                <div className="message">
-                    <strong> {post.message}</strong>
-                </div>
-        
-                <div className="picturePost">
-                   {post.picture && (
-                      <img src={post.picture} alt="card-Picture" className="cardPicture" />
-                    )}
-                </div>
+
+
+                         {/* Picture posted */}
+                    <div className="picturePost">
+                    {post.picture && (
+                        <img src={post.picture} alt="card-Picture" className="cardPicture" />
+                        )}
+                    </div>
                           
-                            {/* footer_Like-Message */}
+                     {/* footer: Like & comment   : have" CardComment" components/ */}
                     <div className='footerCard'>
                      
+                           {/* //comments -left*/}
                        <div className='card-comment'>
-        
-        
-        
-        
-        
-                           {/* //comments */}
                              <i className="far fa-comment-dots" 
-                             onClick={()=> setShowComments(!showComments)}
-                             />
-        
+                             onClick={()=> setShowComments(!showComments)} />
+
                              <span> {post.comments.length}</span>
                        </div>
-                       
-                       <LikeBtn post={post} />
-                       <span> {post.likers.length}</span>
+
+                        {/* //LikeComment -right*/}    
+                      <div className ="containerLikePost">
+                           <LikeBtn post={post} />
+                           <span> {post.likers.length}</span>
+                      </div>
                     </div>
-                        {showComments && <CardComment post={post} /> }
+                    
+                    <div className='allComments'>
+                            {showComments && <CardComment post={post} /> }
+                     </div>
                     
 
         </div>
 
 
-        <div className="picturePost">
-           {post.picture && (
-              <img src={post.picture} alt="card-Pi" className="cardPicture" />
-            )}
-        </div>
-                  
-                    {/* footer_Like-Message */}
-            <div className='footerCard'>
-             
-               <div className='card-comment'>
 
 
-
-
-
-                   {/* //comments */}
-                     <i className="far fa-comment-dots" 
-                     onClick={()=> setShowComments(!showComments)}
-                     />
-
-                     <span> {post.comments.length}</span>
-               </div>
-               
-               <LikeBtn post={post} />
-               <span> {post.likers.length}</span>
-            </div>
-                {showComments && <CardComment post={post} /> }
             
     </div>
 
