@@ -15,7 +15,7 @@ const NavBar = ({setInputSearch}) => {
 
     
     return (
-        <div>
+    <div>
 
   {/* // nv navbar */}
   <Navbar bg="dark" expand="lg" variant="dark"  className='nabbar'>
@@ -48,35 +48,36 @@ const NavBar = ({setInputSearch}) => {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown> */}
     </Nav>
+
     <Form inline>
-    <Nav className="mr-auto ">
-        
+        <Nav className="mr-auto "  className='searchInput'>
+            
 
-         { isAuth?(
-              <Link to="/" className="Btn">
-                 <Nav href="/" onClick={()=>dispatch(logout() )} >LogOut</Nav>
-             </Link>)
-            :
-            (
-                <div className="sign">
-                    <Link to="/signin" className="Btn">
-                        <Nav href="/">Sign In</Nav>
-                    </Link>
-                    <Link to="/signup" className="Btn">
-                        <Nav href="/" >Sign Up</Nav>
-                    </Link>
-                </div>
-            )
+            { isAuth?(
+                  <Link to="/" className="Btn">
+                    <Nav href="/" onClick={()=>dispatch(logout() )} >LogOut</Nav>
+                </Link>)
+                :
+                (
+                    <div className="sign">
+                        <Link to="/signin" className="Btn">
+                            <Nav href="/">Sign In</Nav>
+                        </Link>
+                        <Link to="/signup" className="Btn">
+                            <Nav href="/" >Sign Up</Nav>
+                        </Link>
+                    </div>
+                )
 
-        }
-       
-         
-    </Nav>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" 
-       onChange={(e)=>setInputSearch(e.target.value)}
-      />
-      {/* <Button variant="outline-success">Search</Button>  */}
-    </Form>
+            }
+          
+            
+        </Nav>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" 
+            onChange={(e)=>setInputSearch(e.target.value)}
+            />
+            {/* <Button variant="outline-success">Search</Button>  */}
+      </Form>
   </Navbar.Collapse>
 </Navbar>
   </div>
