@@ -1,4 +1,5 @@
 const User = require('../models/User.model')
+const bcrypt=require('bcrypt')
 const ObjectID = require("mongoose").Types.ObjectId;
 
 
@@ -42,25 +43,59 @@ exports.updateUser = async(req,res)=>{
     if ( !ObjectID.isValid(req.params.id)){
        return res.status(400).send({ errors:[{ msg:"ID unknown : " + req.params.id}] })
       }
+      
 
     try {
          await User.findOneAndUpdate(
           { _id: req.params.id },
-          { $set: req.body
-          },
+          { $set:{...req.body}},
             { new: true, upsert: true, setDefaultsOnInsert: true },  //evit bug 
-            
             (err, docs) => {
               if (!err) return res.send(docs);
               if (err) return res.status(400).send({errors:[{msg:"Can not update this user!!"}]})
             } 
-          );
-          
+          );    
+        
     } catch (error) {
         return res.status(400).send({errors:[{msg:"Can not update this user!!"}]})
         
     }
 }
+// const saltRounds = 10;
+// const hashedPassword = await bcrypt.hashSync(password, saltRounds);
+
+// create newUser ----------------------------------------
+// const newUser = new User({...req.body})
+//change the password to the hashed Password
+// newUser.password = hashedPassword;
+ // save it------------------
+// await newUser.save()
+
+/**
+ * edit contact
+ *  */
+//  const editContact = async (req, res) => {
+  // const { name, email, phone } = req.body
+//   const { _id } = req.params
+//   try {
+//     const contactToEdit = await Contact.updateOne({ _id }, { $set: { ...req.body } })
+   
+//     if (!contactToEdit.nModified) {
+//       res.status(400).send({ msg: 'Contact already updated ..', contactToEdit })
+//       return
+//     }
+//     res.status(200).send({ msg: 'Contact updated ..', contactToEdit })
+//   } catch (error) {
+//     res.status(400).send({ msg: 'Can not edit contact with this id !!', error })
+//   }
+// }
+
+
+
+
+
+
+
 
 
 /// delete user
