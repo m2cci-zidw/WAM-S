@@ -40,7 +40,10 @@ function App() {
 
         <Route path="/admin" component={() => <Admin inputSearch={inputSearch} />} />
         <Route path="/adminallposts" component={() => <AllPosts inputSearch={inputSearch} />}/>
-        <Route path="/adminpostuser" component={() => <PosteOneUser inputSearch={inputSearch} />} />
+        {/* <Route path="/adminpostuser" component={() => <PosteOneUser inputSearch={inputSearch}  />} /> */}
+        
+        <Route path="/adminpostuser" component={PosteOneUser} />
+        
        
         <PrivetRoute path="/profile" component={() => <Profile inputSearch={inputSearch} />}/>
         <Route path="/*" component={Errors} />

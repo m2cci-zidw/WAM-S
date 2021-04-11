@@ -51,19 +51,21 @@ export const deletePost=(postId)=>async(dispatch)=>{
 }
 
 
-export const updatePost = (postId, message) => {
-  return (dispatch) => {
-    return axios({
-      method: "put",
-      url: `api/post/${postId}`,
-      data: { message },
-    })
-      .then((res) => {
-        dispatch({ type: UPDATE_POST, payload: { message, postId } });
-      })
-      .catch((err) => console.log(err));
-  };
-};
+
+
+export const updatePost=(id,message)=> async(dispatch) =>{
+  try {
+     await axios.put(`/api/post/${id}`,message)
+     dispatch({ type: UPDATE_POST, payload: { message} });
+     dispatch(getPosts())
+    
+  } catch (error) {
+    dispatch({  payload: error.response.data });
+
+    
+  }
+
+}
 
 
 

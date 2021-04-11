@@ -68,11 +68,11 @@ import {
             picture: payload.picture,
 
           };
-          case UPDATE_BIO:
-            return{
-              ...state,
-              bio:payload,
-            }
+          // case UPDATE_BIO:
+          //   return{
+          //     ...state,
+          //     bio:payload,
+          //   }
 
       
 
