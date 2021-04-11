@@ -1,6 +1,10 @@
 import React  from 'react'
 import { useSelector} from 'react-redux'
 import './Card.css'
+
+import edit from "../../assets/edit.png";
+import delt from "../../assets/delete.png";
+
 const CardComment = ({post}) => {
     // const handleComment = (e) => { e.preventDefault();}
         // const [text, setText] = useState("");
@@ -15,6 +19,7 @@ const CardComment = ({post}) => {
                         //if commentContainer  color =orange
                         "commentClient" : 'commentContainer'} 
                          key = {comment._id}> 
+
                         <div className='com-NAmeAndPic'>
                                     <img className="imgUser"  src={
                                         users.map(user => {
@@ -23,9 +28,14 @@ const CardComment = ({post}) => {
                                         }).join("")  }alt="commenPicture"/> 
                                     {/* commenterPseudo */}
                                     {/* <div className='commenterName'> */}
-                                        <strong>{comment.commenterName} </strong>
+                                    <strong>    {comment.commenterName} </strong>
                                     {/* </div>    */}
-                                    <p>{comment.text} </p>         
+                                    <div className='EditDeleteImg'>
+                                    <p>{comment.text} </p>  
+                                      <img src={edit} alt='imgEdit' style={{width:"30px"}} />
+                                      <img src={delt} alt='imgDelete' style={{width:"30px"}} />
+                                   </div>  
+                                  
                         </div>
 {/* stoped hhhhhhhhhhhhhhhheeeerrre ! */}
                         {/* {users._id && (
@@ -44,7 +54,10 @@ const CardComment = ({post}) => {
                     </div>
                 )
             } )}
-            <i>Leave your comments..</i>
+            
+                 <input type="text" placeholder="Leave your comments.. " />
+            
+          
         </div>
     )
 }

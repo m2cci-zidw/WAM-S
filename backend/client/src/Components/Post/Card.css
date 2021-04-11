@@ -212,7 +212,19 @@
 .footer-Form{
   height: 30px;
 }
-/*********************/
-/* .WrapperComments {
+
+
+/*******CardComment.js**************/
+.WrapperComments {
   border: 4px solid rgb(224, 224, 10);
-} */
+}
+
+.EditDeleteImg{
+  border: 4px solid rgb(10, 224, 64);
+
+}
+
+.inputPostCommentUser{
+  border: 4px solid rgb(10, 224, 64);
+
+}
