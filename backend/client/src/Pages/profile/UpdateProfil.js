@@ -1,48 +1,66 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {updateBio} from "../../JS/actions/user";
+import {Modal,Button,Form}from "react-bootstrap"
 
 import './Profile.css'
 
 
 const UpdateProfil = () => {
-    const [updateForm, setUpdateForm] = useState(false);
-    const user = useSelector((state) => state.userReducer.user);
-    const [bio, setBio] = useState(user);
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const user = useSelector((state) => state.userReducer.user);
+  const [upUser, setUpUser] = useState({ name: "", bio: "", password: 0 });
+
+
+   
         const dispatch = useDispatch();
         const handleUpdate = () => {
-                    // dispatch(updateBio(user._id, bio));
-                    dispatch(updateBio(user._id,bio))
+                  
+                    dispatch(updateBio(user._id,upUser))
                     
-                    setUpdateForm(false);}
+        }
 
-
+ // handlechange
+ const handleChange = (e) => {
+    setUpUser({ ...upUser, [e.target.name]: e.target.value })
+}
     
     return (
         <div>
-            <div>
-            <div className="bio-update">
-              {updateForm === false && (
-                <div className="FormBio">
-                    <p onClick={() => setUpdateForm(!updateForm)}>{bio && user.bio}</p>
-                    <button onClick={() => setUpdateForm(!updateForm)}>
-                    Modifier bio
-                    </button>
-                </div>
-                )}
-                {updateForm && (
-                <div className="FormBio">
-                    <textarea className="TextBio"
-                    type="text"
-                    value={bio.bio}
-                    onChange={(e) => setBio({...bio,bio:e.target.value})}
-                    ></textarea>
-                    <button onClick={handleUpdate}>Valider modifications</button>
-                </div>
-                )}
-            </div>
-            </div>
-            
+            <Button variant="primary" onClick={handleShow}>
+                Update info
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                    <Modal.Body> 
+                        <Form.Control placeholder="Enter new name ..."
+                            name="name"
+                            type="text"
+                            value={upUser.name}
+                            onChange={handleChange}
+                        />
+                    <Form.Control placeholder="Enter new bio ..."
+                            name="bio"
+                            type="text"
+                            value={upUser.bio}
+                            onChange={handleChange} 
+                    />
+                </Modal.Body>
+                
+                <Modal.Footer>
+                <Button variant="primary" onClick={()=> {handleClose() ; handleUpdate()}}>
+                Valider 
+                </Button>
+                </Modal.Footer>
+            </Modal>
+                    
         </div>
     )
 }

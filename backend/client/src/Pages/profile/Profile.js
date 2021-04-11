@@ -12,8 +12,9 @@ import './Profile.css'
 
 const Profile = ({inputSearch}) => {
     const user = useSelector ((state) => state.userReducer.user);
-   
+  
     
+   
     
     const [updateImg, setUpdateimage] = useState(false)
     const handleUpdateImg=()=>{
@@ -34,6 +35,7 @@ const Profile = ({inputSearch}) => {
                   onClick={()=>handleUpdateImg()}
                   />
                   
+                  
                 {/* <a href="/" className="btn btn-outline-dark btn-sm btn-block">Edit profile</a> */}
                 {/* <UploadImg/> */}
                 </div>
@@ -43,7 +45,9 @@ const Profile = ({inputSearch}) => {
                   <h4 className="mt-0 mb-3">{user && user.name}</h4>
                   {/* <p className="small mb-4"> <i className="fas fa-map-marker-alt mr-2" /></p> */}
 
+                  <UpdateProfil/>
                 </div>
+                
 
               </div>
             </div>
@@ -53,7 +57,7 @@ const Profile = ({inputSearch}) => {
             <div className="bg-light p-4 d-flex justify-content-end text-center">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item">
-                  <h5 className="font-weight-bold mb-0 d-block">215</h5><small className="text-muted"> <i className="fas fa-image mr-1" />Photos</small>
+                  <h5 className="font-weight-bold mb-0 d-block">{ }</h5><small className="text-muted"> <i className="fas fa-image mr-1" />Photos</small>
                 </li>
                 <li className="list-inline-item">
                   <h5 className="font-weight-bold mb-0 d-block">745</h5><small className="text-muted"> <i className="fas fa-user mr-1" />Followers</small>
@@ -66,7 +70,8 @@ const Profile = ({inputSearch}) => {
             <div className="px-4 py-3">
               <h5 className="mb-0">About</h5>
               <div className="p-4 rounded shadow-sm bg-light">
-              <UpdateProfil/>
+                <p>{user && user.bio}</p>
+              
               </div>
             </div>
             <div className="py-4 px-4">
@@ -75,6 +80,8 @@ const Profile = ({inputSearch}) => {
               </div>
               <div className="row">
 
+                  <PostUser user={user}  />
+                  
 
                   <PostUser user={user} inputSearch={inputSearch} />
 

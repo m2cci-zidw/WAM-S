@@ -93,9 +93,9 @@ import {
     };
   };
 
-  export const updateBio=(id,bio)=> async(dispatch) =>{
+  export const updateBio=(id,upUser)=> async(dispatch) =>{
     try {
-       await axios.put(`/api/users/${id}`,bio)
+       await axios.put(`/api/users/${id}`,upUser)
       dispatch(currentUser())
       
     } catch (error) {
