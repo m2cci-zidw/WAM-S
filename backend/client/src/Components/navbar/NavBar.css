@@ -19,8 +19,14 @@
 }
 .nabbar{
     border-bottom: 3px solid royalblue !important;
+    height: 60px;
     /********/
     /* position: fixed;
-    width: 100%; */
+    width: 100%;  */
 
+}
+
+.searchInput{
+    /* border: 2px solid red; */
+    margin-right: 20px;
 }

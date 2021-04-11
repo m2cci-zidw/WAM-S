@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import{Navbar,Nav,Form}from 'react-bootstrap'
+import{Navbar,Nav,Form,FormControl,Button}from 'react-bootstrap'
 import './NavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../JS/actions/user'
@@ -8,14 +8,14 @@ import { logout } from '../../JS/actions/user'
 // import logo from "../../assets/logo.png"
 
 
-const NavBar = () => {
+const NavBar = ({setInputSearch}) => {
     const dispatch = useDispatch()
     const isAuth = useSelector((state) => state.userReducer.isAuth)
     const user = useSelector((state) => state.userReducer.user)
 
     
     return (
-        <div>
+    <div>
 
   {/* // nv navbar */}
   <Navbar bg="dark" expand="lg" variant="dark"  className='nabbar'>
@@ -48,33 +48,36 @@ const NavBar = () => {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown> */}
     </Nav>
+
     <Form inline>
-    <Nav className="mr-auto ">
-        
+        <Nav className="mr-auto "  className='searchInput'>
+            
 
-         { isAuth?(
-              <Link to="/" className="Btn">
-                 <Nav href="/" onClick={()=>dispatch(logout() )} >LogOut</Nav>
-             </Link>)
-            :
-            (
-                <div className="sign">
-                    <Link to="/signin" className="Btn">
-                        <Nav href="/">Sign In</Nav>
-                    </Link>
-                    <Link to="/signup" className="Btn">
-                        <Nav href="/" >Sign Up</Nav>
-                    </Link>
-                </div>
-            )
+            { isAuth?(
+                  <Link to="/" className="Btn">
+                    <Nav href="/" onClick={()=>dispatch(logout() )} >LogOut</Nav>
+                </Link>)
+                :
+                (
+                    <div className="sign">
+                        <Link to="/signin" className="Btn">
+                            <Nav href="/">Sign In</Nav>
+                        </Link>
+                        <Link to="/signup" className="Btn">
+                            <Nav href="/" >Sign Up</Nav>
+                        </Link>
+                    </div>
+                )
 
-        }
-       
-         
-    </Nav>
-      {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
-      {/* <Button variant="outline-success">Search</Button> */}
-    </Form>
+            }
+          
+            
+        </Nav>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" 
+            onChange={(e)=>setInputSearch(e.target.value)}
+            />
+            {/* <Button variant="outline-success">Search</Button>  */}
+      </Form>
   </Navbar.Collapse>
 </Navbar>
   </div>
@@ -82,3 +85,5 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+

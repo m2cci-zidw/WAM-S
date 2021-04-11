@@ -43,7 +43,7 @@ const SignIn = ({history}) => {
             <button
             type="submit"
             onClick={(e)=>{e.preventDefault();dispatch(login(user,history))}}
-            >Login1</button>
+            >Login</button>
 
             
           </form>

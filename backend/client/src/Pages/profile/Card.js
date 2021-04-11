@@ -54,9 +54,7 @@ const Card = ({post}) => {
                                 alt="poster-pic"
                                 className="imgPostProfil"
                                 /> 
-                                
-                    
-            
+
         </div>
         <Button variant="danger" className="BtnDeleteUpd" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
 

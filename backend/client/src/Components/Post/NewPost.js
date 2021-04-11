@@ -3,8 +3,9 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import { addPost } from '../../JS/actions/actionsPost';
 import { currentUser } from '../../JS/actions/user';
+import addfile from "../../assets/addfile.png";
 // import { isEmpty } from "../Utiles/Utiles";
-// import './Card.css'
+import './Card.css'
 
 const NewPost = () => {
     const user = useSelector(state => state.userReducer.user)
@@ -66,9 +67,11 @@ const NewPost = () => {
                 {/* post file */}
            <div className='footer-Form'>
                    <div className='icon'>
-                               <i className="fas fa-file-upload fileUpload"
-                               onClick={()=>setUpLoadFile(!upLoadFile)}
-                               />
+
+                                <img src={addfile} alt="addFile-img" className='addFile' 
+                                 onClick={()=>setUpLoadFile(!upLoadFile)}
+                                />
+
                                 {upLoadFile && 
                           ( <input className='inputForm' type="file" id='file-upload' name='file' accept=".jpg, .jpeg , .png" 
                            onChange={(e) => handlePicture(e)}
@@ -76,7 +79,7 @@ const NewPost = () => {
                    </div> 
            </div>
 
-           <button style={{width:'100px',background:'navy'}}  onClick={()=>{handlePost();setUpLoadFile(!upLoadFile)}} > AddPost</button>
+           <button style={{width:'100px',background:'#09A086'}}  onClick={()=>{handlePost();setUpLoadFile(!upLoadFile);setMessage("")} } > AddPost</button>
          </div>
        
 
