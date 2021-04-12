@@ -10,6 +10,7 @@ import { isEmpty } from "../Utiles/Utiles";
 
 
 
+
 const Card = ({post}) => {
 
     const [showComments, setShowComments] = useState(false);
@@ -79,7 +80,7 @@ const Card = ({post}) => {
                          {/* Picture posted */}
                     <div className="picturePost">
                     {post.picture && (
-                        <img src={post.picture} alt="card-Picture" className="cardPicture" />
+                        <img src={post.picture} alt="card-icture" className="cardPicture" />
                         )}
                     </div>
                           
@@ -88,8 +89,10 @@ const Card = ({post}) => {
                      
                            {/* //comments -left*/}
                        <div className='card-comment'>
+                           
                              <i className="far fa-comment-dots" 
                              onClick={()=> setShowComments(!showComments)} />
+                           
 
                              <span> {post.comments.length}</span>
                        </div>

@@ -8,6 +8,9 @@ import {
     LIKE_POST,
     UNLIKE_POST,
     UPDATE_POST, 
+    DELETE_COMMENT,
+    FAIL_COMMENT,
+    ADD_COMMENT
  
 //  TOGGLE_LIKE,
 //  TOGGLE_UNLIKE
@@ -107,23 +110,51 @@ export const unlikePost = (postId, userId) => {
 
 
 
+// export const deleteComment = (postId, commentId) => {
+//   return (dispatch) => {
+//     return axios({
+//       method: "patch",
+//       url: `api/post/delete-comment-post/${postId}`,
+//       data: { commentId },
+//     })
+//       .then((res) => {
+//         dispatch({ type: DELETE_COMMENT, payload: { postId, commentId } });
+//       })
+//       .catch((err) => console.log(err));
+//   };
+// };
 
 
 
+export const deleteComment=(postId,commentId)=>async(dispatch)=>{
+  try {
+    await axios.patch(`api/post/delete-comment-post/${postId}`, commentId)
+    dispatch({type:DELETE_COMMENT})
+    // dispatch(getPosts())
+  } catch (error) {
+    dispatch({ type: FAIL_COMMENT, payload: error.response.data });
+    
+  }
+}
+
+// $push: {
+//   comments: {
+//     commenterId: req.body.commenterId,
+//     commenterName: req.body.commenterName,
+//     text: req.body.text,
+//     timestamp: new Date().getTime(),
+//   },
+// },
 
 
+export const addComment=(postId,data)=>async(dispatch)=>{
+  try {
+    await axios.patch(`api/post/comment-post/${postId}`, data)
+    dispatch({type:ADD_COMMENT})
 
+  } catch (error) {
+    dispatch({ type: FAIL_COMMENT, payload: error.response.data });
+    
+  }
+}
   
-
-  // //like unliked
-  // export const toggleUnLike = ()=>{
-  //   return {
-  //     type : TOGGLE_UNLIKE
-  //   }
-  // }
-
-  // export const toggleLike = ()=>{
-  //   return {
-  //     type : TOGGLE_LIKE
-  //   }
-  // }
