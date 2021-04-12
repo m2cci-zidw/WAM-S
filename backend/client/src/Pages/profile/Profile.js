@@ -31,7 +31,7 @@ const Profile = ({inputSearch}) => {
               <div className="media align-items-end profile-head">
               <div className="profile mr-3">
                   
-                  <img src={user && user.picture} alt="..." width={250} className="rounded mb-2 img-thumbnail"
+                  <img src={user && user.picture} alt="..." style={{width:'250px'}} className="rounded mb-2 img-thumbnail"
                   onClick={()=>handleUpdateImg()}
                   />
                   
@@ -41,11 +41,13 @@ const Profile = ({inputSearch}) => {
                 </div>
                 
 
-                <div className="media-body mb-5 text-white">
-                  <h4 className="mt-0 mb-3">{user && user.name}</h4>
+                <div className="media-body mb-5 text-white UpdattingProfil">
+                    <div className ='NameEmailUser'>
+                        <h4 className="mt-0 mb-3">{user  && user.name}</h4>
+                        {/* <h6 className="mt-0 mb-3">{user && user.email}</h6> */}
+                    </div>
+                    <UpdateProfil/>
                   {/* <p className="small mb-4"> <i className="fas fa-map-marker-alt mr-2" /></p> */}
-
-                  <UpdateProfil/>
                 </div>
                 
 
@@ -69,19 +71,19 @@ const Profile = ({inputSearch}) => {
             </div>
             <div className="px-4 py-3">
               <h5 className="mb-0">About</h5>
+              
               <div className="p-4 rounded shadow-sm bg-light">
-                <p>{user && user.bio}</p>
+                <p> {user && user.bio}</p>
               
               </div>
             </div>
+
+
             <div className="py-4 px-4">
               <div className="d-flex align-items-center justify-content-between mb-3">
                 <h5 className="mb-0">Recent photos</h5><a href="/" className="btn btn-link text-muted">Show all</a>
               </div>
-              <div className="row">
-
-                 
-                  
+              <div className="row" >
 
                   <PostUser user={user} inputSearch={inputSearch} />
 

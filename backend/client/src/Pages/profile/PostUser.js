@@ -5,11 +5,16 @@ import Card from './Card'
 
 
 const PostUser = ({user,inputSearch}) => {
+
     const posts = useSelector(state => state.postReducer.posts)
     const dispatch = useDispatch()
+
+
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch])
+
+    
     return (
         <div className="Container-Post-User">
              {
