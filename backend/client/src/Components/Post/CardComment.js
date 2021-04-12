@@ -14,9 +14,9 @@ const CardComment = ({post}) => {
         const curentUser = useSelector(state => state.userReducer.user)
         const users = useSelector(state => state.usersReducer.users)  // oneallusers
         
-        useEffect(() => {
-            dispatch(post)
-        }, [])
+        // useEffect(() => {
+        //     dispatch(post)
+        // }, [])
         
     return (
         <div className='WrapperComments'>
@@ -38,15 +38,18 @@ const CardComment = ({post}) => {
                                     {/* <div className='commenterName'> */}
                                     <strong>    {curentUser.name} </strong>
                                     {/* </div>    */}
+
                                     <div className='EditDeleteImg'>
                                     <p>{comment.text} </p>  
-                                      <img src={edit} alt='imgEdit' style={{width:"30px"}} />
-
-                                     { (curentUser._id === comment.commenterId)?
-
-                                          <img src={delt} onClick={()=>dispatch(deleteComment(post._id,comment._id))} alt='imgDelete' style={{width:"30px"}} />
-                                          :
-                                          null}
+                                        <div className='BtnEditDelete'> 
+                                          <img src={edit} className='BtnPost' alt='imgEdit' style={{width:"30px"}} />
+                                      
+                                         { (curentUser._id === comment.commenterId)?
+                                      
+                                              <img src={delt} className='BtnPost'  onClick={()=>dispatch(deleteComment(post._id,comment._id))} alt='imgDelete' style={{width:"30px"}} />
+                                              :
+                                              null}
+                                        </div>
                                           
                                       
                                    </div>  

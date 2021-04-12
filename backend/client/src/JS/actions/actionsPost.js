@@ -110,32 +110,32 @@ export const unlikePost = (postId, userId) => {
 
 
 
-// export const deleteComment = (postId, commentId) => {
-//   return (dispatch) => {
-//     return axios({
-//       method: "patch",
-//       url: `api/post/delete-comment-post/${postId}`,
-//       data: { commentId },
-//     })
-//       .then((res) => {
-//         dispatch({ type: DELETE_COMMENT, payload: { postId, commentId } });
-//       })
-//       .catch((err) => console.log(err));
-//   };
-// };
+export const deleteComment = (postId, commentId) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `api/post/delete-comment-post/${postId}`,
+      data: { commentId },
+    })
+      .then((res) => {
+        dispatch({ type: DELETE_COMMENT, payload: { postId, commentId } });
+      })
+      .catch((err) => console.log(err));
+  };
+};
 
 
 
-export const deleteComment=(postId,commentId)=>async(dispatch)=>{
-  try {
-    await axios.patch(`api/post/delete-comment-post/${postId}`, commentId)
-    dispatch({type:DELETE_COMMENT})
-    // dispatch(getPosts())
-  } catch (error) {
-    dispatch({ type: FAIL_COMMENT, payload: error.response.data });
+// export const deleteComment=(postId,commentId)=>async(dispatch)=>{
+//   try {
+//     await axios.patch(`api/post/delete-comment-post/${postId}`, commentId)
+//     dispatch({type:DELETE_COMMENT})
+//     // dispatch(getPosts())
+//   } catch (error) {
+//     dispatch({ type: FAIL_COMMENT, payload: error.response.data });
     
-  }
-}
+//   }
+// }
 
 // $push: {
 //   comments: {

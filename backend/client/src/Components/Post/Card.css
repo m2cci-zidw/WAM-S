@@ -219,12 +219,30 @@
   border: 4px solid rgb(224, 224, 10);
 }
 
+.com-NAmeAndPic{
+  border: 2px solid rgb(23, 23, 24);
+  margin-bottom: 10px;
+}
+
 .EditDeleteImg{
-  border: 4px solid rgb(10, 224, 64);
+  border: 4px solid rgb(0, 114, 28);
+  background: #bdbbb8;
+}
+
+.BtnEditDelete{
+  /* border: 2px solid rgb(224, 60, 10); */
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 438px;
+}
+
+.BtnPost{
+  cursor: pointer;
 
 }
 
-.inputPostCommentUser{
-  border: 4px solid rgb(10, 224, 64);
+/* .inputPostCommentUser{
+  border: 4px solid rgb(14, 10, 224);
 
-}
+} */
