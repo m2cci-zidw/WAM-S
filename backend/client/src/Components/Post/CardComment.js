@@ -1,18 +1,26 @@
-import React  from 'react'
-import { useSelector} from 'react-redux'
+import React, { useEffect, useState }  from 'react'
+import { useDispatch, useSelector} from 'react-redux'
 import './Card.css'
 
 import edit from "../../assets/edit.png";
 import delt from "../../assets/delete.png";
+import { deleteComment } from '../../JS/actions/actionsPost';
 
 const CardComment = ({post}) => {
+    const dispatch = useDispatch()
+    
     // const handleComment = (e) => { e.preventDefault();}
-        // const [text, setText] = useState("");
+        const [text, setText] = useState("");
+        const curentUser = useSelector(state => state.userReducer.user)
         const users = useSelector(state => state.usersReducer.users)  // oneallusers
-        // const dispatch = useDispatch()
+        
+        useEffect(() => {
+            dispatch(post)
+        }, [])
         
     return (
         <div className='WrapperComments'>
+            
            {post.comments.map(comment =>{
                 return (
                     <div className ={comment.commenterId === users._id ? 
@@ -28,29 +36,39 @@ const CardComment = ({post}) => {
                                         }).join("")  }alt="commenPicture"/> 
                                     {/* commenterPseudo */}
                                     {/* <div className='commenterName'> */}
-                                    <strong>    {comment.commenterName} </strong>
+                                    <strong>    {curentUser.name} </strong>
                                     {/* </div>    */}
                                     <div className='EditDeleteImg'>
                                     <p>{comment.text} </p>  
                                       <img src={edit} alt='imgEdit' style={{width:"30px"}} />
-                                      <img src={delt} alt='imgDelete' style={{width:"30px"}} />
+
+                                     { (curentUser._id === comment.commenterId)?
+
+                                          <img src={delt} onClick={()=>dispatch(deleteComment(post._id,comment._id))} alt='imgDelete' style={{width:"30px"}} />
+                                          :
+                                          null}
+                                          
+                                      
                                    </div>  
                                   
                         </div>
 {/* stoped hhhhhhhhhhhhhhhheeeerrre ! */}
-                        {/* {users._id && (
-                            <form action="" onSubmit={handleComment}
+                        {users._id && (
+                            <form action="" 
+                            //  onSubmit={handleComment}
                              className="comment-form">
-                            <input type="text"name="text"
-                                placeholder="Leave us a message.."
-                                onChange={(e) => setText(e.target.value)}
-                                value={text}
-                            />
-                            <br />
-                            <input type="submit" value="Envoyer" />
+                                <input 
+                                    type="text"
+                                    name="text"
+                                    placeholder="Leave us a message.."
+                                    onChange={(e) => setText(e.target.value)}
+                                    value={text}
+                                />
+                                <br />
+                                <input type="submit" value="Envoyer" />
                             </form>
                         )}                   
- */}
+
                     </div>
                 )
             } )}

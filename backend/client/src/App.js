@@ -33,7 +33,7 @@ function App() {
 
       <Switch>
 
-        <Route exact path="/" component={() => <LandPage inputSearch={inputSearch} />} />
+        <Route exact path={["/",]} component={() => <LandPage inputSearch={inputSearch} />} />
 
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
@@ -43,9 +43,10 @@ function App() {
         {/* <Route path="/adminpostuser" component={() => <PosteOneUser inputSearch={inputSearch}  />} /> */}
         
         <Route path="/adminpostuser" component={PosteOneUser} />
-        
-       
+
         <PrivetRoute path="/profile" component={() => <Profile inputSearch={inputSearch} />}/>
+
+       
         <Route path="/*" component={Errors} />
 
       </Switch>
