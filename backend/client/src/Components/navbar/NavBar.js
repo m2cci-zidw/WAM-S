@@ -1,8 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import{Navbar,Nav,Form,FormControl,Button}from 'react-bootstrap'
-import './NavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
+
+
+import './NavBar.css'
 import { logout } from '../../JS/actions/user'
 
 // import logo from "../../assets/logo.png"
@@ -24,16 +26,18 @@ const NavBar = ({setInputSearch}) => {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-        <Link to="/"className="Btn">
+
+        <Link to="/"className="Btn" activeClassName='active-link'>
               <Nav href="/">Home</Nav>
         </Link>
-        <Link to="/profile" className="Btn">
+
+        <Link to="/profile" className="Btn" activeClassName='active-link'>
               <Nav href="/">Profil</Nav>
         </Link>
 
 
        { user && user.role ===1 ?
-       <Link to="/admin" className="Btn">
+       <Link to="/admin" className="Btn" activeClassName='active-link'>
               <Nav href="/">Admin</Nav>
         </Link>
         :
@@ -54,9 +58,9 @@ const NavBar = ({setInputSearch}) => {
             
 
             { isAuth?(
-                  <Link to="/" className="Btn">
+                  <NavLink to="/" className="Btn" activeClassName='active-link'>
                     <Nav href="/" onClick={()=>dispatch(logout() )} >LogOut</Nav>
-                </Link>)
+                </NavLink>)
                 :
                 (
                     <div className="sign">
@@ -73,7 +77,8 @@ const NavBar = ({setInputSearch}) => {
           
             
         </Nav>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" 
+            <FormControl type="text" placeholder="Search.." className="mr-sm-1 " 
+            style={{height:'32px'}} 
             onChange={(e)=>setInputSearch(e.target.value)}
             />
             {/* <Button variant="outline-success">Search</Button>  */}

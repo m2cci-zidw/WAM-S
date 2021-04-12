@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
-import './Profile.css'
-import { useDispatch} from 'react-redux'
-import { deletePost, updatePost } from '../../JS/actions/actionsPost'
 import {Modal,Button,Form}from "react-bootstrap"
+import { useDispatch} from 'react-redux'
+
+
+import './Profile.css'
+import { deletePost, updatePost } from '../../JS/actions/actionsPost'
+import deleteBtn from "../../assets/trash.png";
+import updateBtn from "../../assets/rotation.png";
 
 const Card = ({post}) => {
     const dispatch = useDispatch()
@@ -28,11 +32,12 @@ const Card = ({post}) => {
 
     
     return (
-        <div className="ContainerPostProfil">
+    <div className="ContainerPostProfil">
 
-<Button variant="primary" onClick={handleShow}>
-                update 
-            </Button>
+            {/* <Button variant="primary" onClick={handleShow}> update</Button> */}
+            <img  src={updateBtn} alt="updateImg" className='UpdateDeletePostCard'
+            onClick={handleShow} 
+            />
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -48,34 +53,29 @@ const Card = ({post}) => {
                 </Modal.Body>
                 
                 <Modal.Footer>
-                <Button variant="primary" onClick={()=> {handleClose() ; handleUpdate()}}>
-                Valider 
-                </Button>
+
+                <Button variant="primary" onClick={()=> {handleClose() ; handleUpdate()}}> Valider  </Button>
+
+
                 </Modal.Footer>
             </Modal>
 
 
-
-
-
-
-
-
-
-
-            <div className="postProfil">
-
+             <div className="postProfil">
                 <h4> {post.message}</h4>
-                            <img src={ post.picture }
-                                alt="poster-pic"
-                                className="imgPostProfil"
-                                /> 
+                <img src={ post.picture } alt="poster-pic" className="PostImgProfil"/> 
              </div>
-        <Button variant="danger" className="BtnDeleteUpd" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
 
-        </div>
+
+        <img  src={deleteBtn} alt="updateImg" className='UpdateDeletePostCard'
+         onClick={()=>dispatch(deletePost(post._id))}
+         />
+
+                {/* <Button variant="danger" className="BtnDeleteUpd"
+                onClick={()=>dispatch(deletePost(post._id))}>Delete</Button> */}
+     </div>
         
-    )
+ )
 }
 
 export default Card
