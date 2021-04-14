@@ -33,9 +33,7 @@ const LikeBtn = ({post}) => {
 
               if(post.likers.includes(user._id))
              setisLiked(true)
-        }
-     
-        
+        } 
     }, [])
 
     return (

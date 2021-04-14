@@ -1,12 +1,12 @@
 import React,{useEffect,useState} from 'react'
 import { useSelector,useDispatch} from 'react-redux'
-import { Spinner } from 'bootstrap-react';
+// import { Spinner } from 'bootstrap-react';
 
 import './Card.css'
 import { getAllUsers } from "../../JS/actions/users.Actions";
 import LikeBtn from './LikeBtn';
 import CardComment from './CardComment';
-import { isEmpty } from "../Utiles/Utiles";
+import { dateParser, isEmpty } from "../Utiles/Utiles";
 
 
 
@@ -18,7 +18,9 @@ const Card = ({post}) => {
     
 
      const users = useSelector(state => state.usersReducer.users)  // oneallusers
-  const [isLoading, setIsLoading] = useState(true);
+     const curentUser = useSelector(state => state.userReducer.user)
+
+//   const [isLoading, setIsLoading] = useState(true);
 
      const dispatch = useDispatch()
     
@@ -52,7 +54,7 @@ const Card = ({post}) => {
                                                         })
                                                         .join("") 
                                                     }
-                                                    alt="poster-pic"
+                                                    alt="posterPic"
                                                     className="imgUser"
                                                     /> 
                                                     
@@ -66,13 +68,16 @@ const Card = ({post}) => {
                                                     else return null;
                                                 })
                                                 }
-                                            </div>
-                    </div>  
+                                        </div>
+                            <div className='dateParser'>
+                                 <span>{dateParser(post.createdAt)} </span>
+                            </div>
+                 </div>  
         
         
                        {/* message post  */}
                     <div className="message">
-                        <strong> {post.message}</strong>
+                         {post.message}
                     </div>
         
 
@@ -105,7 +110,10 @@ const Card = ({post}) => {
                     </div>
                     
                     <div className='allComments'>
-                            {showComments && <CardComment post={post} /> }
+                        {curentUser && 
+                         showComments && <CardComment post={post} /> 
+                        }
+                           
                      </div>
                     
 

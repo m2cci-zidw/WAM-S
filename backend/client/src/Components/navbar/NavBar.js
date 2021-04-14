@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './NavBar.css'
 import { logout } from '../../JS/actions/user'
 
-// import logo from "../../assets/logo.png"
+ import logo from "../../assets/logo.png"
 
 
 const NavBar = ({setInputSearch}) => {
@@ -22,22 +22,22 @@ const NavBar = ({setInputSearch}) => {
   {/* // nv navbar */}
   <Navbar bg="dark" expand="lg" variant="dark"  className='nabbar'>
   {/* <Navbar.Brand href="#home"> <img src={logo} alt="wams" className="logo" /> </Navbar.Brand> */}
-  <Navbar.Brand href="#home"> WAM's </Navbar.Brand>
+  <Navbar.Brand href="#home"  > <img src={logo}  alt='logo'  className='logo'/> </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
 
-        <Link to="/"className="Btn" activeClassName='active-link'>
+        <Link to="/"className="Btn" >
               <Nav href="/">Home</Nav>
         </Link>
 
-        <Link to="/profile" className="Btn" activeClassName='active-link'>
+        <Link to="/profile" className="Btn" >
               <Nav href="/">Profil</Nav>
         </Link>
 
 
        { user && user.role ===1 ?
-       <Link to="/admin" className="Btn" activeClassName='active-link'>
+       <Link to="/admin" className="Btn" >
               <Nav href="/">Admin</Nav>
         </Link>
         :

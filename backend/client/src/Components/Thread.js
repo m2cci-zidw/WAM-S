@@ -35,6 +35,7 @@ const Thread = ({inputSearch}) => {
                 .map(post=> 
                    <Card post={post} key={post._id} /> 
                     )}
+                   
             </div>
         </div>
     )
