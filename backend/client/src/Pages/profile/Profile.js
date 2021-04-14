@@ -73,7 +73,7 @@ const Profile = ({inputSearch}) => {
               <h5 className="mb-0">About</h5>
               
               <div className="p-4 rounded shadow-sm bg-light">
-                <p> {user && user.bio}</p>
+                <h6> {user && user.bio}</h6>
               
               </div>
             </div>

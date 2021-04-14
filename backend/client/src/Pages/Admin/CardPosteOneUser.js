@@ -25,7 +25,18 @@ const CardPosteOneUser = ({post}) => {
                 </Card.Text>
                 {post._id}
 
-                <Button variant="info" onClick={()=>dispatch(deletePost(post._id))}>Delete</Button>
+                <Button variant="info" onClick={()=>
+                
+                { if (window.confirm("Do you want to delete this post ?")){
+
+                    dispatch(deletePost(post._id))}
+                   
+                }} 
+
+
+                
+                >Delete
+                </Button>
                 
             </Card.Body>
             </Card>

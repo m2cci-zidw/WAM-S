@@ -10,7 +10,10 @@ import {
     UPDATE_POST, 
     DELETE_COMMENT,
     FAIL_COMMENT,
-    ADD_COMMENT
+    ADD_COMMENT,
+
+    EDIT_COMMENT,
+    FAIL_EDIT_COMMENT
  
 //  TOGGLE_LIKE,
 //  TOGGLE_UNLIKE
@@ -110,19 +113,6 @@ export const unlikePost = (postId, userId) => {
 
 
 
-export const deleteComment = (postId, commentId) => {
-  return (dispatch) => {
-    return axios({
-      method: "patch",
-      url: `api/post/delete-comment-post/${postId}`,
-      data: { commentId },
-    })
-      .then((res) => {
-        dispatch({ type: DELETE_COMMENT, payload: { postId, commentId } });
-      })
-      .catch((err) => console.log(err));
-  };
-};
 
 
 
@@ -147,14 +137,70 @@ export const deleteComment = (postId, commentId) => {
 // },
 
 
-export const addComment=(postId,data)=>async(dispatch)=>{
-  try {
-    await axios.patch(`api/post/comment-post/${postId}`, data)
-    dispatch({type:ADD_COMMENT})
-
-  } catch (error) {
-    dispatch({ type: FAIL_COMMENT, payload: error.response.data });
-    
-  }
-}
+/*********Comments ******************* */
+//addComment
+export const addComment = (postId, commenterId, text, commenterName) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `api/post/comment-post/${postId}`,
+      data: { commenterId, text, commenterName },
+    })
+      .then((res) => {
+        dispatch({ type: ADD_COMMENT,  payload: { postId } });
+      })
+      .catch((err) => console.log(err));
+  };
+};
   
+
+// export const addComment=(postId,commenterId,text,commenterName)=>async(dispatch)=>{
+//   try {
+//     await axios.patch(`api/post/comment-post/${postId}`,
+//      data {commenterId,text,commenterName}
+//      )
+//     /**********amir */
+//     dispatch({type:ADD_COMMENT})
+
+//   } catch (error) {
+//     dispatch({ type: FAIL_COMMENT, payload: error.response.data });
+    
+//   }
+// }
+
+
+
+
+
+
+
+
+//editComment 
+export const editComment = (postId, commentId, text) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `api/post/edit-comment-post/${postId}`,
+      data: { commentId, text },
+    })
+      .then((res) => {
+        dispatch({ type: EDIT_COMMENT, payload: { postId, commentId, text } });
+      })
+      .catch((err) => console.log(err));
+      
+  };
+};
+//deleteComment
+export const deleteComment = (postId, commentId) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `api/post/delete-comment-post/${postId}`,
+      data: { commentId },
+    })
+      .then((res) => {
+        dispatch({ type: DELETE_COMMENT, payload: { postId, commentId } });
+      })
+      .catch((err) => console.log(err));
+  };
+};

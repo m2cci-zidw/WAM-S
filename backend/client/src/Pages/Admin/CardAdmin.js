@@ -27,7 +27,19 @@ const CardAdmin = ({user}) => {
                     </Card.Text>
                     
                     <div className='ContainerBTN'>
-                        <Button variant="danger" onClick={()=>dispatch(deleteUser(user._id))}>Delete</Button>
+                        <Button variant="danger" onClick={()=>
+                            
+                            { if (window.confirm("Do you want to delete User?")){
+
+                                dispatch(deleteUser(user._id))}
+                            }}
+                            
+                            >Delete
+                            
+                            </Button>
+
+
+
                         <Link to= {{pathname:"/adminpostuser", user:user}}>
                         <Button variant="danger" >Postes</Button>
                         {/* <PosteOneUser user={user}/> */}
