@@ -1,7 +1,7 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 
-import { Spinner } from 'bootstrap-react'
+
 
 
 import { getPosts } from '../JS/actions/actionsPost'
@@ -9,7 +9,9 @@ import { getPosts } from '../JS/actions/actionsPost'
 
 
 import Card from './Post/Card'
-import { isEmpty } from './Utiles/Utiles'
+
+
+import "./Thread.css"
 
 const Thread = ({inputSearch}) => {
     const posts = useSelector(state => state.postReducer.posts)
@@ -24,7 +26,7 @@ const Thread = ({inputSearch}) => {
     return (
         <div>
             
-           <div>
+           <div className="postHomePage">
                 {posts
                 
                 .filter(post=> post && 

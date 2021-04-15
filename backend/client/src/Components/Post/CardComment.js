@@ -39,7 +39,7 @@ const CardComment = ({ post }) => {
         return (
           <div
             className={
-              comment.commenterId === users._id
+              comment.commenterId === curentUser._id
                 ? //if commentContainer  color =orange
                   "commentClient"
                 : "commentContainer"
@@ -107,7 +107,7 @@ const CardComment = ({ post }) => {
                              <input
                                 type="text"
                                 name="text"
-                                placeholder="Leave us a message2.."
+                                placeholder="Leave us a comment ..."
                                 onChange={(e) => setText(e.target.value)}
                                 value={text}
                                 />

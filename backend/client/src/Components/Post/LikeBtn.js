@@ -40,11 +40,11 @@ const LikeBtn = ({post}) => {
         <div>
              
              <i  
-            className={ isLiked ?  "fas fa-heartbeat" :"far fa-heart" } 
+            className={ isLiked ?  "fas fa-heart coeurRed" :"far fa-heart" } 
             onClick={()=>HandleLike()}
              />
-
-
+    {/* <i class="fas fa-heart"></i> */}
+    {/* fas fa-heartbeat */}
  
         </div>
     )

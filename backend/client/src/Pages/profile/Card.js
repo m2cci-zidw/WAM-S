@@ -68,8 +68,12 @@ const Card = ({post}) => {
 
 
         <img  src={deleteBtn} alt="updateImg" className='UpdateDeletePostCard'
-         onClick={()=>dispatch(deletePost(post._id))}
+         onClick={()=>{ if (window.confirm("Do you want to delete User?")){
+
+            dispatch(deletePost(post._id))}
+            }}
          />
+
 
                 {/* <Button variant="danger" className="BtnDeleteUpd"
                 onClick={()=>dispatch(deletePost(post._id))}>Delete</Button> */}
