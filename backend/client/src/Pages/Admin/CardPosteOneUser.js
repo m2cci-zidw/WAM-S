@@ -23,7 +23,7 @@ const CardPosteOneUser = ({post}) => {
                 <Card.Text>
                 {post.message}
                 </Card.Text>
-                {post._id}
+               
 
                 <Button variant="info" onClick={()=>
                 

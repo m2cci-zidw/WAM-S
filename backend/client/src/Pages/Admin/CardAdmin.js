@@ -38,9 +38,11 @@ const CardAdmin = ({user}) => {
                             
                             </Button>
 
+                        
 
 
-                        <Link to= {{pathname:"/adminpostuser", user:user}}>
+
+                        <Link to= {{pathname:"/adminpostuser", user:{user}}}>
                         <Button variant="danger" >Postes</Button>
                         {/* <PosteOneUser user={user}/> */}
                         </Link>

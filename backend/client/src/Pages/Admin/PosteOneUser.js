@@ -19,11 +19,34 @@ const PosteOneUser = (props) => {
         {/* <i className="far fa-hand-point-left icon-7x"  goBack/> */}
         <button style={{ widh: "20px" }}> goBack</button>
       </Link>
+
       <div className="contentPostCard">
+            
+            {
+               posts?
+           posts.filter(post=>post.posterId===props.location.user.user._id).map(post=>
+                <CardPosteOneUser post={post}/>  )
+           :
+           null
+           }
+       </div>
+       {/* {console.log(props.location.user.user._id)} */}
+
+
+
+
+
+
+
+      {/* <div className="contentPostCard">
         {posts ? posts.map((post) => <CardPosteOneUser post={post} />) : null}
-      </div>
+      </div> */}
     </>
+
+
+
   );
 };
+
 
 export default PosteOneUser;

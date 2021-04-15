@@ -56,7 +56,7 @@ const Profile = ({inputSearch}) => {
 
                 {updateImg && <UploadImg/>}
 
-            <div className="bg-light p-4 d-flex justify-content-end text-center">
+            {/* <div className="bg-light p-4 d-flex justify-content-end text-center">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item">
                   <h5 className="font-weight-bold mb-0 d-block">{ }</h5><small className="text-muted"> <i className="fas fa-image mr-1" />Photos</small>
@@ -68,8 +68,10 @@ const Profile = ({inputSearch}) => {
                   <h5 className="font-weight-bold mb-0 d-block">340</h5><small className="text-muted"> <i className="fas fa-user mr-1" />Following</small>
                 </li>
               </ul>
-            </div>
-            <div className="px-4 py-3">
+            </div> */}
+            <br/>
+            
+            <div className="px-4 py-5">
               <h5 className="mb-0">About</h5>
               
               <div className="p-4 rounded shadow-sm bg-light">
@@ -81,11 +83,11 @@ const Profile = ({inputSearch}) => {
 
             <div className="py-4 px-4">
               <div className="d-flex align-items-center justify-content-between mb-3">
-                <h5 className="mb-0">Recent photos</h5><a href="/" className="btn btn-link text-muted">Show all</a>
+                <h5 className="mb-0">Recent photos</h5>
               </div>
+                  <PostUser user={user} inputSearch={inputSearch} />
               <div className="row" >
 
-                  <PostUser user={user} inputSearch={inputSearch} />
 
                  
 

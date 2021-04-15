@@ -1,7 +1,7 @@
 
 import { Route, Switch } from "react-router";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 import Errors from "./Pages/errors/Errors";
@@ -23,6 +23,8 @@ function App() {
   const dispatch = useDispatch();
   const [inputSearch, setInputSearch] = useState("");
 
+  
+
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);
@@ -41,7 +43,9 @@ function App() {
         <Route path="/admin" component={() => <Admin inputSearch={inputSearch} />} />
         <Route path="/adminallposts" component={() => <AllPosts inputSearch={inputSearch} />}/>
         {/* <Route path="/adminpostuser" component={() => <PosteOneUser inputSearch={inputSearch}  />} /> */}
-        
+
+
+       
         <Route path="/adminpostuser" component={PosteOneUser} />
 
         <PrivetRoute path="/profile" component={() => <Profile inputSearch={inputSearch} />}/>
